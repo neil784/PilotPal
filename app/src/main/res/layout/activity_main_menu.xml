@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#56C7F2"
+    android:padding="20dp"
+    tools:context=".MainMenu">
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/armata"
+        android:text="Main Menu"
+        android:textColor="@color/white"
+        android:textSize="38sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.02" />
+
+
+    <Button
+        android:id="@+id/descentcalculator"
+        android:layout_width="145dp"
+        android:layout_height="130dp"
+        android:backgroundTint="@color/white"
+        android:fontFamily="@font/armata"
+        android:paddingTop="50dp"
+        android:text="Descent Calculator"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.45" />
+
+    <Button
+        android:id="@+id/windcalculator"
+        android:layout_width="145dp"
+        android:layout_height="130dp"
+        android:backgroundTint="@color/white"
+        android:fontFamily="@font/armata"
+        android:paddingTop="50dp"
+        android:text="Wind Calculator"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.2" />
+
+    <Button
+        android:id="@+id/checklist"
+        android:layout_width="145dp"
+        android:layout_height="130dp"
+        android:backgroundTint="@color/white"
+        android:fontFamily="@font/armata"
+        android:paddingTop="60dp"
+        android:text="Special OPS"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.7" />
+
+    <Button
+        android:id="@+id/metar"
+        android:layout_width="145dp"
+        android:layout_height="130dp"
+        android:backgroundTint="@color/white"
+        android:fontFamily="@font/armata"
+        android:paddingTop="60dp"
+        android:text="WX &amp; airport"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.2" />
+
+    <Button
+        android:id="@+id/fueltime"
+        android:layout_width="145dp"
+        android:layout_height="130dp"
+        android:backgroundTint="@color/white"
+        android:fontFamily="@font/armata"
+        android:paddingTop="60dp"
+        android:text="Flight time &amp; fuel "
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.45" />
+
+    <Button
+        android:id="@+id/phoneticalphabet"
+        android:layout_width="145dp"
+        android:layout_height="130dp"
+        android:backgroundTint="@color/white"
+        android:fontFamily="@font/armata"
+        android:paddingTop="60dp"
+        android:text="Phonetic Alphabet"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.7" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:elevation="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/checklist"
+        app:layout_constraintEnd_toEndOf="@+id/checklist"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/checklist"
+        app:layout_constraintTop_toTopOf="@+id/checklist"
+        app:layout_constraintVertical_bias="0.25"
+        app:srcCompat="@drawable/clipboardicon" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:elevation="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/windcalculator"
+        app:layout_constraintEnd_toEndOf="@+id/windcalculator"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/windcalculator"
+        app:layout_constraintTop_toTopOf="@+id/windcalculator"
+        app:layout_constraintVertical_bias="0.186"
+        app:srcCompat="@drawable/windicon" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:elevation="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/descentcalculator"
+        app:layout_constraintEnd_toEndOf="@+id/descentcalculator"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/descentcalculator"
+        app:layout_constraintTop_toTopOf="@+id/descentcalculator"
+        app:layout_constraintVertical_bias="0.186"
+        app:srcCompat="@drawable/landingicon" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:elevation="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/phoneticalphabet"
+        app:layout_constraintEnd_toEndOf="@+id/phoneticalphabet"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/phoneticalphabet"
+        app:layout_constraintTop_toTopOf="@+id/phoneticalphabet"
+        app:layout_constraintVertical_bias="0.186"
+        app:srcCompat="@drawable/phoneticicon" />
+
+    <ImageView
+        android:id="@+id/imageView6"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:elevation="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/metar"
+        app:layout_constraintEnd_toEndOf="@+id/metar"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/metar"
+        app:layout_constraintTop_toTopOf="@+id/metar"
+        app:layout_constraintVertical_bias="0.25"
+        app:srcCompat="@drawable/metaricon" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:elevation="5dp"
+        app:layout_constraintHorizontal_bias="0.55"
+        app:layout_constraintVertical_bias="0.25"
+        app:layout_constraintBottom_toBottomOf="@+id/fueltime"
+        app:layout_constraintEnd_toEndOf="@+id/fueltime"
+        app:layout_constraintStart_toStartOf="@+id/fueltime"
+        app:layout_constraintTop_toTopOf="@+id/fueltime"
+        app:srcCompat="@drawable/fuelicon" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

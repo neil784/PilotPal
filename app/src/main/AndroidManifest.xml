@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.pilotpal">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/pilotpal_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/pilotpal_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.PilotPal">
+        <activity android:name=".AirportWebview"></activity>
+        <activity android:name=".TafWebview" />
+        <activity android:name=".MetarWebview" />
+        <activity android:name=".Fueltime" />
+        <activity android:name=".Metar" />
+        <activity android:name=".Landing" />
+        <activity android:name=".Takeoff" />
+        <activity android:name=".VSActivity" />
+        <activity android:name=".DistanceActivity" />
+        <activity android:name=".PhoneticAlphabet" />
+        <activity android:name=".DescentCalculator" />
+        <activity android:name=".WindCalculator" />
+        <activity android:name=".SpecialOps" />
+        <activity android:name=".MainMenu" />
+        <activity android:name=".IntroPage">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+    </application>
+
+</manifest>

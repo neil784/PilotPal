@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">Pilot Pal</string>
+    <string name="disclaimer">Disclaimer: This app should be used to approximate calculations. In
+        real world flying, top of descent, vertical speed, flight time, and fuel calculations
+        varies on aircraft type, atmospheric conditions, and various other factors.</string>
+</resources>
