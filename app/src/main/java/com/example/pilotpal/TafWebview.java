@@ -28,10 +28,19 @@ public class TafWebview extends AppCompatActivity {
         webView.getSettings().setJavaScriptEnabled(true);
         webView.setWebViewClient(new WebViewClient() {
             @Override
+            public void onPageFinished(WebView view, String url) {
+                webView.loadUrl("javascript:(function() { " +
+                        "var head = document.getElementsByClassName('navbar navbar-expand-lg navbar-dark bg-dark')[0].style.display='none'; " +
+                        "var head = document.getElementsByClassName('mt-5 pt-5 footer')[0].style.display='none'; " +
+                        "})()");
+            }
+        });
+        /*webView.setWebViewClient(new WebViewClient() {
+            @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 return true;
             }
-        });
+        });*/
         webView.loadUrl(url);
     }
 }
