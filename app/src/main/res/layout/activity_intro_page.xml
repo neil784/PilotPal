@@ -30,7 +30,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/armata"
-        android:text="Swipe Left to Begin >"
+        android:text="Created by Neil Prabhu"
         android:textColor="#FFFFFF"
         android:textSize="16sp"
         android:textStyle="bold"
