@@ -22,12 +22,13 @@ public class IntroPage extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_intro_page);
 
-        new Handler().postDelayed(new Runnable(){
+        new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 Intent intent = new Intent(IntroPage.this, MainMenu.class);
                 startActivity(intent);
                 finish();
+                overridePendingTransition(R.anim.slide_in_down, R.anim.slide_out_down);
             }
         }, 2000);
     }
