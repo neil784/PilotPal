@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainMenu extends AppCompatActivity {
     Button checklist;
@@ -17,6 +18,7 @@ public class MainMenu extends AppCompatActivity {
     Button phoneticalphabet;
     Button metar;
     Button fueltime;
+    boolean backPressed = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -73,5 +75,14 @@ public class MainMenu extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (backPressed) {
+            finish();
+        }
+        Toast.makeText(this, "Back one more time to exit", Toast.LENGTH_SHORT).show();
+        backPressed = true;
     }
 }
