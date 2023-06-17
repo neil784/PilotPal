@@ -17,9 +17,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.android.material.textfield.TextInputLayout;
+
 public class Metar extends AppCompatActivity {
-    EditText inputIcao;
-    TextView errorText;
+    TextInputLayout icaoInputLayout;
+    EditText icaoEditText;
     Button metarBTN;
     Button tafBTN;
     Button airportBTN;
@@ -33,28 +35,12 @@ public class Metar extends AppCompatActivity {
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_metar);
-        inputIcao = findViewById(R.id.inputIcao);
-        errorText = findViewById(R.id.errorText);
+        icaoInputLayout = findViewById(R.id.icaoInputLayout);
+        icaoEditText = findViewById(R.id.icaoEditText);
         metarBTN = findViewById(R.id.metarBTN);
         tafBTN = findViewById(R.id.tafBTN);
         airportBTN = findViewById(R.id.airportBTN);
         goback = findViewById(R.id.goback);
-        inputIcao.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                errorText.setText("");
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-            }
-        });
         goback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,12 +52,13 @@ public class Metar extends AppCompatActivity {
         metarBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String icao = inputIcao.getText().toString().toLowerCase();
+                String icao = icaoEditText.getText().toString().toLowerCase();
                 if (icao.isEmpty()) {
-                    errorText.setText("Please enter an airport ICAO code");
+                    icaoInputLayout.setError("Please enter an airport ICAO code");
                 } else if (icao.length() != 4) {
-                    errorText.setText("Please enter a valid 4 digit ICAO code");
+                    icaoInputLayout.setError("Please enter a valid 4 digit ICAO code");
                 } else {
+                    icaoInputLayout.setError(null);
                     Intent intent = new Intent(Metar.this, MetarWebview.class);
                     intent.putExtra("ICAO", icao);
                     startActivity(intent);
@@ -81,12 +68,13 @@ public class Metar extends AppCompatActivity {
         tafBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String icao = inputIcao.getText().toString().toLowerCase();
+                String icao = icaoEditText.getText().toString().toLowerCase();
                 if (icao.isEmpty()) {
-                    errorText.setText("Please enter an airport ICAO code");
+                    icaoInputLayout.setError("Please enter an airport ICAO code");
                 } else if (icao.length() != 4) {
-                    errorText.setText("Please enter a valid 4 digit ICAO code");
+                    icaoInputLayout.setError("Please enter a valid 4 digit ICAO code");
                 } else {
+                    icaoInputLayout.setError(null);
                     Intent intent = new Intent(Metar.this, TafWebview.class);
                     intent.putExtra("ICAO", icao);
                     startActivity(intent);
@@ -96,12 +84,13 @@ public class Metar extends AppCompatActivity {
         airportBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String icao = inputIcao.getText().toString().toLowerCase();
+                String icao = icaoEditText.getText().toString().toLowerCase();
                 if (icao.isEmpty()) {
-                    errorText.setText("Please enter an airport ICAO code");
+                    icaoInputLayout.setError("Please enter an airport ICAO code");
                 } else if (icao.length() != 4) {
-                    errorText.setText("Please enter a valid 4 digit ICAO code");
+                    icaoInputLayout.setError("Please enter a valid 4 digit ICAO code");
                 } else {
+                    icaoInputLayout.setError(null);
                     Intent intent = new Intent(Metar.this, AirportWebview.class);
                     intent.putExtra("ICAO", icao);
                     startActivity(intent);
