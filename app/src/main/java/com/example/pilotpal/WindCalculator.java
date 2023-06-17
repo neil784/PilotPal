@@ -1,6 +1,6 @@
 package com.example.pilotpal;
-import androidx.appcompat.app.AppCompatActivity;
 
+import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
@@ -12,13 +12,18 @@ import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.google.android.material.textfield.TextInputLayout;
 public class WindCalculator extends AppCompatActivity {
-    private EditText runwayNumber;
-    private EditText windDirection;
-    private EditText windSpeed;
+    private TextInputLayout windDirectionInputLayout;
+    private EditText windDirectionEditText;
+    private TextInputLayout windSpeedInputLayout;
+    private EditText windSpeedEditText;
+    private TextInputLayout runwayInputLayout;
+    private EditText runwayEditText;
+    private TextInputLayout gustSpeedInputLayout;
+    private EditText gustSpeedEditText;
     private TextView firstDisplay;
     private TextView secondDisplay;
-    private TextView gustSpeed;
     private TextView goback;
     private double calculatedHeadwind;
     private double calculatedCrosswind;
@@ -32,19 +37,25 @@ public class WindCalculator extends AppCompatActivity {
         getSupportActionBar().hide();
         setContentView(R.layout.activity_wind_calculator);
 
-        goback = findViewById(R.id.goback);
+        windDirectionInputLayout = findViewById(R.id.windDirectionInputLayout);
+        windSpeedInputLayout = findViewById(R.id.windSpeedInputLayout);
+        runwayInputLayout = findViewById(R.id.runwayInputLayout);
+        gustSpeedInputLayout = findViewById(R.id.gustSpeedInputLayout);
 
-        runwayNumber = findViewById(R.id.runwayNumber);
-        windDirection = findViewById(R.id.windDirection);
-        windSpeed = findViewById(R.id.windSpeed);
-        gustSpeed = findViewById(R.id.gustSpeed);
+        windDirectionEditText = findViewById(R.id.windDirectionEditText);
+        windSpeedEditText = findViewById(R.id.windSpeedEditText);
+        runwayEditText = findViewById(R.id.runwayEditText);
+        gustSpeedEditText = findViewById(R.id.gustSpeedEditText);
+
         firstDisplay = findViewById(R.id.firstDisplay);
         secondDisplay = findViewById(R.id.secondDisplay);
 
-        runwayNumber.addTextChangedListener(textWatcher);
-        windDirection.addTextChangedListener(textWatcher);
-        windSpeed.addTextChangedListener(textWatcher);
-        gustSpeed.addTextChangedListener(textWatcher);
+        goback = findViewById(R.id.goback);
+
+        windDirectionEditText.addTextChangedListener(textWatcher);
+        windSpeedEditText.addTextChangedListener(textWatcher);
+        runwayEditText.addTextChangedListener(textWatcher);
+        gustSpeedEditText.addTextChangedListener(textWatcher);
 
         goback.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,121 +68,91 @@ public class WindCalculator extends AppCompatActivity {
     }
     private TextWatcher textWatcher = new TextWatcher() {
         @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-        }
-
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
-            String runway = runwayNumber.getText().toString();
-            String windD = windDirection.getText().toString();
-            String windS = windSpeed.getText().toString();
-            String gustS = gustSpeed.getText().toString();
-            if(!runway.isEmpty() && !windD.isEmpty() && !windS.isEmpty() && !gustS.isEmpty()) {
-                if (Integer.parseInt(runwayNumber.getText().toString()) > 36 || Integer.parseInt(runwayNumber.getText().toString()) < 1) {
-                    firstDisplay.setText("Please enter a valid runway number");
-                    secondDisplay.setText("");
-                }
-                else if (Integer.parseInt(windD) > 360 || Integer.parseInt(windD) < 0) {
-                    firstDisplay.setText("Please enter a valid wind direction");
-                    secondDisplay.setText("");
-                }
-                else if(Integer.parseInt(windS) == 0) {
-                    firstDisplay.setText("Headwind: 0 kts");
-                    secondDisplay.setText("Crosswind: 0 kts");
-                }
+            String windDirection = windDirectionEditText.getText().toString();
+            String windSpeed = windSpeedEditText.getText().toString();
+            String runway = runwayEditText.getText().toString();
+            String gustSpeed = gustSpeedEditText.getText().toString();
+            boolean shouldCalculate = true;
 
-                else {
-                    calculate(Integer.parseInt(runway), Integer.parseInt(windS), Integer.parseInt(windD), Integer.parseInt(gustS));
-                    if (calculatedHeadwind >= 0 && calculatedCrosswind >= 0) {
-                        firstDisplay.setText("Headwind: " + truncateTo(calculatedHeadwind, 2) + " kts");
-                        secondDisplay.setText("Crosswind: " + truncateTo(calculatedCrosswind, 2) + " kts");
-                    }
-                    if ((calculatedHeadwind < 0 && calculatedCrosswind >= 0)) {
-                        calculatedHeadwind = Math.abs(calculatedHeadwind);
-                        firstDisplay.setText("Tailwind: " + truncateTo(calculatedHeadwind, 2) + " kts");
-                        secondDisplay.setText("Crosswind: " + truncateTo(calculatedCrosswind, 2) + " kts");
-                    }
-                    if (calculatedHeadwind >= 0 && calculatedCrosswind < 0) {
-                        calculatedCrosswind = Math.abs(calculatedCrosswind);
-                        firstDisplay.setText("Headwind: " + truncateTo(calculatedHeadwind, 2) + " kts");
-                        secondDisplay.setText("Crosswind: " + truncateTo(calculatedCrosswind, 2) + " kts");
-                    }
-                    if (calculatedHeadwind < 0 && calculatedCrosswind < 0) {
-                        calculatedCrosswind = Math.abs(calculatedCrosswind);
-                        calculatedHeadwind = Math.abs(calculatedHeadwind);
-                        firstDisplay.setText("Tailwind: " + truncateTo(calculatedHeadwind, 2) + " kts");
-                        secondDisplay.setText("Crosswind: " + truncateTo(calculatedCrosswind, 2) + " kts");
-                    }
-                }
+            if (!windDirection.isEmpty() && Integer.parseInt(windDirection) > 360) {
+                windDirectionInputLayout.setError("Between 0 and 360");
+                firstDisplay.setText("");
+                secondDisplay.setText("");
+                shouldCalculate = false;
+            } else {
+                windDirectionInputLayout.setError(null);
             }
-            else if(!runway.isEmpty() && !windD.isEmpty() && !windS.isEmpty()) {
-                if (Integer.parseInt(runwayNumber.getText().toString()) > 36 || Integer.parseInt(runwayNumber.getText().toString()) < 1) {
-                    firstDisplay.setText("Please enter a valid runway number");
-                    secondDisplay.setText("");
-                }
-                else if (Integer.parseInt(windD) > 360 || Integer.parseInt(windD) < 0) {
-                    firstDisplay.setText("Please enter a valid wind direction");
-                    secondDisplay.setText("");
-                }
-                else if(Integer.parseInt(windS) == 0) {
-                    firstDisplay.setText("Headwind: 0 kts");
-                    secondDisplay.setText("Crosswind: 0 kts");
-                }
-                else if(10*(Integer.parseInt(runway))==Integer.parseInt(windD)) {
-                    firstDisplay.setText("Headwind: " + truncateTo(Integer.parseInt(windSpeed.getText().toString()), 2) + " kts");
-                    secondDisplay.setText("Crosswind: 0 kts");
-                }
-                else {
-                    calculate(Integer.parseInt(runway), Integer.parseInt(windS), Integer.parseInt(windD), 0);
-                    if (calculatedHeadwind >= 0 && calculatedCrosswind >= 0) {
-                        firstDisplay.setText("Headwind: " + truncateTo(calculatedHeadwind, 2) + " kts");
-                        secondDisplay.setText("Crosswind: " + truncateTo(calculatedCrosswind, 2) + " kts");
-                    }
-                    if ((calculatedHeadwind < 0 && calculatedCrosswind >= 0)) {
-                        calculatedHeadwind = Math.abs(calculatedHeadwind);
-                        firstDisplay.setText("Tailwind: " + truncateTo(calculatedHeadwind, 2) + " kts");
-                        secondDisplay.setText("Crosswind: " + truncateTo(calculatedCrosswind, 2) + " kts");
-                    }
-                    if (calculatedHeadwind >= 0 && calculatedCrosswind < 0) {
-                        calculatedCrosswind = Math.abs(calculatedCrosswind);
-                        firstDisplay.setText("Headwind: " + truncateTo(calculatedHeadwind, 2) + " kts");
-                        secondDisplay.setText("Crosswind: " + truncateTo(calculatedCrosswind, 2) + " kts");
-                    }
-                    if (calculatedHeadwind < 0 && calculatedCrosswind < 0) {
-                        calculatedCrosswind = Math.abs(calculatedCrosswind);
-                        calculatedHeadwind = Math.abs(calculatedHeadwind);
-                        firstDisplay.setText("Tailwind: " + truncateTo(calculatedHeadwind, 2) + " kts");
-                        secondDisplay.setText("Crosswind: " + truncateTo(calculatedCrosswind, 2) + " kts");
-                    }
-                }
+
+            if (!runway.isEmpty() && (Integer.parseInt(runway) < 1 || Integer.parseInt(runway) > 36)) {
+                runwayInputLayout.setError("Between 1 and 36");
+                firstDisplay.setText("");
+                secondDisplay.setText("");
+                shouldCalculate = false;
+            } else {
+                runwayInputLayout.setError(null);
             }
-            else {
+
+            if (!windDirection.isEmpty() && !windSpeed.isEmpty() && !runway.isEmpty() && shouldCalculate) {
+                if (gustSpeed.isEmpty()) {
+                    calculate(Integer.parseInt(windDirection), Integer.parseInt(windSpeed), Integer.parseInt(runway), 0);
+                } else {
+                    calculate(Integer.parseInt(windDirection), Integer.parseInt(windSpeed), Integer.parseInt(runway), Integer.parseInt(gustSpeed));
+                }
+                handleDisplay();
+            } else {
                 firstDisplay.setText("");
                 secondDisplay.setText("");
             }
         }
         @Override
-        public void afterTextChanged(Editable s) {
-
-        }
+        public void afterTextChanged(Editable s) { }
     };
-    static double truncateTo( double unroundedNumber, int decimalPlaces ) {
-        int truncatedNumberInt = (int)( unroundedNumber * Math.pow( 10, decimalPlaces ) );
-        double truncatedNumber = (double)( truncatedNumberInt / Math.pow( 10, decimalPlaces ) );
+
+    private void handleDisplay() {
+        windDirectionInputLayout.setError(null);
+        runwayInputLayout.setError(null);
+        if (calculatedHeadwind >= 0 && calculatedCrosswind >= 0) {
+            firstDisplay.setText("Headwind: " + truncateTo(calculatedHeadwind, 2) + " kts");
+            secondDisplay.setText("Crosswind: " + truncateTo(calculatedCrosswind, 2) + " kts");
+        }
+        if ((calculatedHeadwind < 0 && calculatedCrosswind >= 0)) {
+            calculatedHeadwind = Math.abs(calculatedHeadwind);
+            firstDisplay.setText("Tailwind: " + truncateTo(calculatedHeadwind, 2) + " kts");
+            secondDisplay.setText("Crosswind: " + truncateTo(calculatedCrosswind, 2) + " kts");
+        }
+        if (calculatedHeadwind >= 0 && calculatedCrosswind < 0) {
+            calculatedCrosswind = Math.abs(calculatedCrosswind);
+            firstDisplay.setText("Headwind: " + truncateTo(calculatedHeadwind, 2) + " kts");
+            secondDisplay.setText("Crosswind: " + truncateTo(calculatedCrosswind, 2) + " kts");
+        }
+        if (calculatedHeadwind < 0 && calculatedCrosswind < 0) {
+            calculatedCrosswind = Math.abs(calculatedCrosswind);
+            calculatedHeadwind = Math.abs(calculatedHeadwind);
+            firstDisplay.setText("Tailwind: " + truncateTo(calculatedHeadwind, 2) + " kts");
+            secondDisplay.setText("Crosswind: " + truncateTo(calculatedCrosswind, 2) + " kts");
+        }
+    }
+
+    static double truncateTo(double unroundedNumber, int decimalPlaces) {
+        int truncatedNumberInt = (int)( unroundedNumber * Math.pow(10, decimalPlaces));
+        double truncatedNumber = (double)( truncatedNumberInt / Math.pow(10, decimalPlaces));
         return truncatedNumber;
     }
-    public  void calculate(int runway, int windSpeed, int windDirection, int gustSpeed) {
-        if(gustSpeed>windSpeed) {
+    public void calculate(int windDirection, int windSpeed, int runway, int gustSpeed) {
+        if (gustSpeed > windSpeed) {
             windSpeed = gustSpeed;
         }
-        runway*=10;
+        runway *= 10;
         int angle;
-        if(windDirection>runway)
-            angle=360-(windDirection-runway);
+        if (windDirection > runway)
+            angle = 360 - (windDirection - runway);
         else
-            angle=360-(runway-windDirection);
-        double headwind = (Math.cos(Math.toRadians(angle)))*windSpeed;
-        double crosswind = (Math.sin(Math.toRadians(angle)))*windSpeed;
+            angle = 360 - (runway - windDirection);
+        double headwind = (Math.cos(Math.toRadians(angle))) * windSpeed;
+        double crosswind = (Math.sin(Math.toRadians(angle))) * windSpeed;
         calculatedHeadwind = truncateTo(headwind, 2);
         calculatedCrosswind = truncateTo(crosswind, 2);
     }

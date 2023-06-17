@@ -31,187 +31,125 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/windDirectionInputLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/armata"
-        android:text="Wind Direction:"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
-        android:textColor="@color/black"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.2" />
-
-    <EditText
-        android:id="@+id/windDirection"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:fontFamily="@font/armata"
-        android:hint="(Between 0 and 360)"
-        android:textColor="@color/black"
-        android:textSize="15sp"
         android:layout_marginRight="20dp"
-        android:inputType="number"
-        android:textAlignment="center"
-        android:textColorHint="@color/black"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:hint="Wind Direction"
+        app:helperText="Between 0 and 360"
+        app:helperTextTextColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.2" />
+        app:layout_constraintTop_toBottomOf="@+id/view2">
 
-    <TextView
-        android:id="@+id/textView5"
-        android:layout_width="wrap_content"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/windDirectionEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLength="3"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/windSpeedInputLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
-        android:fontFamily="@font/armata"
-        android:text="Wind Speed:"
-        android:textColor="@color/black"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.31" />
-
-    <EditText
-        android:id="@+id/windSpeed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="(In kts)"
         android:layout_marginRight="20dp"
-        android:textColor="@color/black"
-        android:textSize="15sp"
-        android:textColorHint="@color/black"
-        android:fontFamily="@font/armata"
-        android:inputType="number"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:hint="Wind Speed"
+        app:helperText="In kts"
+        app:helperTextTextColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.32" />
+        app:layout_constraintTop_toBottomOf="@+id/windDirectionInputLayout">
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/windSpeedEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLength="2"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/runwayInputLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/armata"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
-        android:text="Runway:"
-        android:textColor="@color/black"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.42" />
-
-    <EditText
-        android:id="@+id/runwayNumber"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="(Between 1 and 36)"
-        android:textSize="15sp"
         android:layout_marginRight="20dp"
-        android:textColor="@color/black"
-        android:fontFamily="@font/armata"
-        android:textColorHint="@color/black"
-        android:inputType="number"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:hint="Runway"
+        app:helperText="Between 1 and 36"
+        app:helperTextTextColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.42" />
+        app:layout_constraintTop_toBottomOf="@+id/windSpeedInputLayout">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/runwayEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLength="2"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/gustSpeedInputLayout"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Gust Speed:"
-        android:fontFamily="@font/armata"
-        android:textColor="@color/black"
-        android:textSize="15sp"
-        android:textStyle="bold"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.53" />
-
-    <EditText
-        android:id="@+id/gustSpeed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:layout_marginRight="20dp"
-        android:ems="10"
-        android:hint="(Optional)"
-        android:textColor="@color/black"
-        android:textSize="15sp"
-        android:fontFamily="@font/armata"
-        android:textColorHint="@color/black"
-        android:inputType="number"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:hint="Gust Speed"
+        app:helperText="Optional"
+        app:helperTextTextColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.53" />
+        app:layout_constraintTop_toBottomOf="@+id/runwayInputLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/gustSpeedEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLength="2"
+            android:inputType="number"/>
+    </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/firstDisplay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
         android:fontFamily="@font/armata"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.7" />
+        app:layout_constraintTop_toBottomOf="@+id/gustSpeedInputLayout" />
 
     <TextView
         android:id="@+id/secondDisplay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="80dp"
         android:fontFamily="@font/armata"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/goback"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.8" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/goback"
