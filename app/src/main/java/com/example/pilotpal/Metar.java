@@ -52,11 +52,11 @@ public class Metar extends AppCompatActivity {
         metarBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String icao = icaoEditText.getText().toString().toLowerCase();
+                String icao = icaoEditText.getText().toString().toLowerCase().trim();
                 if (icao.isEmpty()) {
                     icaoInputLayout.setError("Please enter an airport ICAO code");
                 } else if (icao.length() != 4) {
-                    icaoInputLayout.setError("Please enter a valid 4 digit ICAO code");
+                    icaoInputLayout.setError("Please enter a valid 4 character ICAO code");
                 } else {
                     icaoInputLayout.setError(null);
                     Intent intent = new Intent(Metar.this, MetarWebview.class);
@@ -68,11 +68,11 @@ public class Metar extends AppCompatActivity {
         tafBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String icao = icaoEditText.getText().toString().toLowerCase();
+                String icao = icaoEditText.getText().toString().toLowerCase().trim();
                 if (icao.isEmpty()) {
                     icaoInputLayout.setError("Please enter an airport ICAO code");
                 } else if (icao.length() != 4) {
-                    icaoInputLayout.setError("Please enter a valid 4 digit ICAO code");
+                    icaoInputLayout.setError("Please enter a valid 4 character ICAO code");
                 } else {
                     icaoInputLayout.setError(null);
                     Intent intent = new Intent(Metar.this, TafWebview.class);
@@ -84,11 +84,11 @@ public class Metar extends AppCompatActivity {
         airportBTN.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String icao = icaoEditText.getText().toString().toLowerCase();
+                String icao = icaoEditText.getText().toString().toLowerCase().trim();
                 if (icao.isEmpty()) {
                     icaoInputLayout.setError("Please enter an airport ICAO code");
                 } else if (icao.length() != 4) {
-                    icaoInputLayout.setError("Please enter a valid 4 digit ICAO code");
+                    icaoInputLayout.setError("Please enter a valid 4 character ICAO code");
                 } else {
                     icaoInputLayout.setError(null);
                     Intent intent = new Intent(Metar.this, AirportWebview.class);
