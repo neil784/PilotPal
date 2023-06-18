@@ -81,7 +81,6 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
         android:layout_marginLeft="20dp"
         android:fontFamily="@font/armata"
         android:text="Flight Time:"
@@ -89,10 +88,11 @@
         android:textColor="@color/black"
         android:textSize="14sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/flightTime1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/groundSpeedInputLayout" />
+        app:layout_constraintTop_toTopOf="@+id/flightTime1" />
 
     <EditText
         android:id="@+id/flightTime1"
@@ -113,36 +113,35 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/groundSpeedInputLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/fuelConsumptionInputLayout" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/fuelConsumptionInputLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="25dp"
         android:layout_marginRight="20dp"
         android:hint="Fuel Consumption"
         app:helperText="In gal/hr"
         app:helperTextTextColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/flightTime1">
+        app:layout_constraintTop_toBottomOf="@+id/groundSpeedInputLayout">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/fuelConsumptionEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:maxLength="4"
-            android:inputType="number" />
+            android:inputType="number"
+            android:maxLength="4" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
         android:layout_marginLeft="20dp"
         android:fontFamily="@font/armata"
         android:text="Fuel Required:"
@@ -150,10 +149,11 @@
         android:textColor="@color/black"
         android:textSize="14sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/fuelRequired"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fuelConsumptionInputLayout" />
+        app:layout_constraintTop_toTopOf="@+id/fuelRequired" />
 
     <EditText
         android:id="@+id/fuelRequired"
@@ -173,24 +173,24 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fuelConsumptionInputLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/flightTime1" />
 
     <TextView
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="30dp"
         android:fontFamily="@font/armata"
         android:text="Fuel Required:\n(+30 min reserve)"
         android:textAlignment="textStart"
         android:textColor="@color/black"
         android:textSize="14sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/fuelRequired30"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fuelRequired" />
+        app:layout_constraintTop_toTopOf="@+id/fuelRequired30" />
 
     <EditText
         android:id="@+id/fuelRequired30"
@@ -217,17 +217,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="30dp"
         android:fontFamily="@font/armata"
         android:text="Fuel Required:\n(+45 min reserve)"
         android:textAlignment="textStart"
         android:textColor="@color/black"
         android:textSize="14sp"
         android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/fuelRequired45"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fuelRequired30" />
+        app:layout_constraintTop_toTopOf="@+id/fuelRequired45" />
 
     <EditText
         android:id="@+id/fuelRequired45"
