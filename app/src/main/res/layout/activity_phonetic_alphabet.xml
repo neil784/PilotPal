@@ -7,7 +7,7 @@
     tools:context=".PhoneticAlphabet">
 
     <View
-        android:id="@+id/view2"
+        android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:background="#56C7F2"
@@ -26,7 +26,7 @@
         android:textColor="@color/white"
         android:textSize="36sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/view2"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

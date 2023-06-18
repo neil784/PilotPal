@@ -7,7 +7,7 @@
     tools:context=".Metar">
 
     <View
-        android:id="@+id/view2"
+        android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         android:background="#56C7F2"
@@ -26,7 +26,7 @@
         android:textColor="@color/white"
         android:textSize="38sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/view2"
+        app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -42,7 +42,7 @@
         app:layout_constraintBottom_toTopOf="@+id/textView15"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view2">
+        app:layout_constraintTop_toBottomOf="@+id/view">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/icaoEditText"

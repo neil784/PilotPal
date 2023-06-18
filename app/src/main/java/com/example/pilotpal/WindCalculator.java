@@ -16,14 +16,13 @@ import com.google.android.material.textfield.TextInputLayout;
 public class WindCalculator extends AppCompatActivity {
     private TextInputLayout windDirectionInputLayout;
     private EditText windDirectionEditText;
-    private TextInputLayout windSpeedInputLayout;
     private EditText windSpeedEditText;
     private TextInputLayout runwayInputLayout;
     private EditText runwayEditText;
-    private TextInputLayout gustSpeedInputLayout;
     private EditText gustSpeedEditText;
-    private TextView firstDisplay;
-    private TextView secondDisplay;
+    private TextView headwindTextView;
+    private EditText headwindEditText;
+    private EditText crosswindEditText;
     private TextView goback;
     private double calculatedHeadwind;
     private double calculatedCrosswind;
@@ -38,17 +37,16 @@ public class WindCalculator extends AppCompatActivity {
         setContentView(R.layout.activity_wind_calculator);
 
         windDirectionInputLayout = findViewById(R.id.windDirectionInputLayout);
-        windSpeedInputLayout = findViewById(R.id.windSpeedInputLayout);
         runwayInputLayout = findViewById(R.id.runwayInputLayout);
-        gustSpeedInputLayout = findViewById(R.id.gustSpeedInputLayout);
 
         windDirectionEditText = findViewById(R.id.windDirectionEditText);
         windSpeedEditText = findViewById(R.id.windSpeedEditText);
         runwayEditText = findViewById(R.id.runwayEditText);
         gustSpeedEditText = findViewById(R.id.gustSpeedEditText);
 
-        firstDisplay = findViewById(R.id.firstDisplay);
-        secondDisplay = findViewById(R.id.secondDisplay);
+        headwindTextView = findViewById(R.id.headwindTextView);
+        headwindEditText = findViewById(R.id.headwindEditText);
+        crosswindEditText = findViewById(R.id.crosswindEditText);
 
         goback = findViewById(R.id.goback);
 
@@ -79,8 +77,8 @@ public class WindCalculator extends AppCompatActivity {
 
             if (!windDirection.isEmpty() && Integer.parseInt(windDirection) > 360) {
                 windDirectionInputLayout.setError("Between 0 and 360");
-                firstDisplay.setText("");
-                secondDisplay.setText("");
+                headwindEditText.setText("");
+                crosswindEditText.setText("");
                 shouldCalculate = false;
             } else {
                 windDirectionInputLayout.setError(null);
@@ -88,8 +86,8 @@ public class WindCalculator extends AppCompatActivity {
 
             if (!runway.isEmpty() && (Integer.parseInt(runway) < 1 || Integer.parseInt(runway) > 36)) {
                 runwayInputLayout.setError("Between 1 and 36");
-                firstDisplay.setText("");
-                secondDisplay.setText("");
+                headwindEditText.setText("");
+                crosswindEditText.setText("");
                 shouldCalculate = false;
             } else {
                 runwayInputLayout.setError(null);
@@ -103,8 +101,8 @@ public class WindCalculator extends AppCompatActivity {
                 }
                 handleDisplay();
             } else {
-                firstDisplay.setText("");
-                secondDisplay.setText("");
+                headwindEditText.setText("");
+                crosswindEditText.setText("");
             }
         }
         @Override
@@ -115,24 +113,28 @@ public class WindCalculator extends AppCompatActivity {
         windDirectionInputLayout.setError(null);
         runwayInputLayout.setError(null);
         if (calculatedHeadwind >= 0 && calculatedCrosswind >= 0) {
-            firstDisplay.setText("Headwind: " + truncateTo(calculatedHeadwind, 2) + " kts");
-            secondDisplay.setText("Crosswind: " + truncateTo(calculatedCrosswind, 2) + " kts");
+            headwindTextView.setText("Headwind:");
+            headwindEditText.setText(truncateTo(calculatedHeadwind, 2) + " kts");
+            crosswindEditText.setText(truncateTo(calculatedCrosswind, 2) + " kts");
         }
         if ((calculatedHeadwind < 0 && calculatedCrosswind >= 0)) {
             calculatedHeadwind = Math.abs(calculatedHeadwind);
-            firstDisplay.setText("Tailwind: " + truncateTo(calculatedHeadwind, 2) + " kts");
-            secondDisplay.setText("Crosswind: " + truncateTo(calculatedCrosswind, 2) + " kts");
+            headwindTextView.setText("Tailwind:");
+            headwindEditText.setText(truncateTo(calculatedHeadwind, 2) + " kts");
+            crosswindEditText.setText(truncateTo(calculatedCrosswind, 2) + " kts");
         }
         if (calculatedHeadwind >= 0 && calculatedCrosswind < 0) {
             calculatedCrosswind = Math.abs(calculatedCrosswind);
-            firstDisplay.setText("Headwind: " + truncateTo(calculatedHeadwind, 2) + " kts");
-            secondDisplay.setText("Crosswind: " + truncateTo(calculatedCrosswind, 2) + " kts");
+            headwindTextView.setText("Headwind:");
+            headwindEditText.setText(truncateTo(calculatedHeadwind, 2) + " kts");
+            crosswindEditText.setText(truncateTo(calculatedCrosswind, 2) + " kts");
         }
         if (calculatedHeadwind < 0 && calculatedCrosswind < 0) {
             calculatedCrosswind = Math.abs(calculatedCrosswind);
             calculatedHeadwind = Math.abs(calculatedHeadwind);
-            firstDisplay.setText("Tailwind: " + truncateTo(calculatedHeadwind, 2) + " kts");
-            secondDisplay.setText("Crosswind: " + truncateTo(calculatedCrosswind, 2) + " kts");
+            headwindTextView.setText("Tailwind:");
+            headwindEditText.setText(truncateTo(calculatedHeadwind, 2) + " kts");
+            crosswindEditText.setText(truncateTo(calculatedCrosswind, 2) + " kts");
         }
     }
 
