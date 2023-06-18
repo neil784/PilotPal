@@ -91,14 +91,14 @@
         app:helperTextTextColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/windSpeedInputLayout">
+        app:layout_constraintTop_toBottomOf="@+id/gustSpeedInputLayout">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/runwayEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:maxLength="2"
-            android:inputType="number" />
+            android:inputType="number"
+            android:maxLength="2" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -114,14 +114,14 @@
         app:helperTextTextColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/runwayInputLayout">
+        app:layout_constraintTop_toBottomOf="@+id/windSpeedInputLayout">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/gustSpeedEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:maxLength="2"
-            android:inputType="number"/>
+            android:inputType="number"
+            android:maxLength="2" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <TextView
@@ -159,7 +159,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/gustSpeedInputLayout" />
+        app:layout_constraintTop_toBottomOf="@+id/runwayInputLayout" />
 
     <TextView
         android:id="@+id/crosswindTextView"
