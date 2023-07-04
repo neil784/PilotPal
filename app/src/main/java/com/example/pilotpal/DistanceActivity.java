@@ -1,7 +1,6 @@
 package com.example.pilotpal;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
@@ -10,58 +9,59 @@ import android.text.TextWatcher;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-
+import com.google.android.material.textfield.TextInputLayout;
 import java.text.DecimalFormat;
 
-public class DistanceActivity extends AppCompatActivity
-{
-    EditText startingAltitude;
-    EditText endingAltitude;
-    EditText descentRate;
-    EditText speedBelow;
-    EditText speedAbove;
-    TextView speedBelowText;
-    TextView speedAboveText;
-    Button calculate;
-    TextView display;
+public class DistanceActivity extends AppCompatActivity {
+    TextInputLayout cruiseAltitudeInputLayout;
+    TextInputLayout targetAltitudeInputLayout;
+    TextInputLayout verticalSpeedInputLayout;
+    TextInputLayout groundSpeed1InputLayout;
+    TextInputLayout groundSpeed2InputLayout;
+    EditText cruiseAltitudeEditText;
+    EditText targetAltitudeEditText;
+    EditText verticalSpeedEditText;
+    EditText groundSpeed1EditText;
+    EditText groundSpeed2EditText;
+    EditText distanceEditText;
+    EditText glideslopeEditText;
+    EditText timeToTargetEditText;
     TextView goback;
 
-    static double time;
-    static double angle;
-    static double distance;
-
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide();
         setContentView(R.layout.activity_distance);
-        DecimalFormat numberFormat=new DecimalFormat("#.0");
+
+        cruiseAltitudeInputLayout = findViewById(R.id.cruiseAltitudeInputLayout);
+        targetAltitudeInputLayout = findViewById(R.id.targetAltitudeInputLayout);
+        verticalSpeedInputLayout = findViewById(R.id.verticalSpeedInputLayout);
+        groundSpeed1InputLayout = findViewById(R.id.groundSpeed1InputLayout);
+        groundSpeed2InputLayout = findViewById(R.id.groundSpeed2InputLayout);
+
+        cruiseAltitudeEditText = findViewById(R.id.cruiseAltitudeEditText);
+        targetAltitudeEditText = findViewById(R.id.targetAltitudeEditText);
+        verticalSpeedEditText = findViewById(R.id.verticalSpeedEditText);
+        groundSpeed1EditText = findViewById(R.id.groundSpeed1EditText);
+        groundSpeed2EditText = findViewById(R.id.groundSpeed2EditText);
+
+        distanceEditText = findViewById(R.id.distanceEditText);
+        glideslopeEditText = findViewById(R.id.glideslopeEditText);
+        timeToTargetEditText = findViewById(R.id.timeToTargetEditText);
+
+        cruiseAltitudeEditText.addTextChangedListener(textWatcher);
+        targetAltitudeEditText.addTextChangedListener(textWatcher);
+        verticalSpeedEditText.addTextChangedListener(textWatcher);
+        groundSpeed1EditText.addTextChangedListener(textWatcher);
+        groundSpeed2EditText.addTextChangedListener(textWatcher);
 
         goback = findViewById(R.id.goback);
-
-        startingAltitude = findViewById(R.id.startingAltitude);
-        endingAltitude = findViewById(R.id.endingAltitude);
-        descentRate = findViewById(R.id.descentRate);
-        speedBelow = findViewById(R.id.speedBelow);
-        speedAbove = findViewById(R.id.speedAbove);
-        speedBelowText = findViewById(R.id.speedBelowText);
-        speedAboveText = findViewById(R.id.speedAboveText);
-        calculate = findViewById(R.id.calculate);
-        display = findViewById(R.id.display);
-
-        startingAltitude.addTextChangedListener(textWatcher);
-        endingAltitude.addTextChangedListener(textWatcher);
-        descentRate.addTextChangedListener(textWatcher);
-        speedBelow.addTextChangedListener(textWatcher);
-        speedAbove.addTextChangedListener(textWatcher);
-
         goback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,116 +70,108 @@ public class DistanceActivity extends AppCompatActivity
                 overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
             }
         });
-
-        calculate.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v)
-            {
-                String startingAlt = startingAltitude.getText().toString();
-                String endingAlt = endingAltitude.getText().toString();
-                String descentR = descentRate.getText().toString();
-                String speedB = speedBelow.getText().toString();
-                String speedA = speedAbove.getText().toString();
-
-                if(Double.parseDouble(endingAlt)>Double.parseDouble(startingAlt))
-                {
-                    display.setText("Error: Target Altitude is above Cruise Altitude");
-                }
-                else {
-                    if (Double.parseDouble(startingAlt) >= 10000) {
-                        distanceDouble(Double.parseDouble(startingAlt), Double.parseDouble(endingAlt), Double.parseDouble(speedA), Double.parseDouble(speedB), Double.parseDouble(descentR));
-                        display.setText("Distance: " + numberFormat.format(distance) + " nm \n Glideslope: " + numberFormat.format(angle) + "° \n Time to Destination: " + Math.round(time) + " min");
-                    } else if (Double.parseDouble(startingAlt) < 10000) {
-                        distanceSingle(Double.parseDouble(startingAlt), Double.parseDouble(endingAlt), Double.parseDouble(speedB), Double.parseDouble(descentR));
-                        display.setText("Distance: " + numberFormat.format(distance) + " nm \n Glideslope: " + numberFormat.format(angle) + "° \n Time to Destination: " + Math.round(time) + " min");
-                    } else {
-                        display.setText("NaNN");
-                    }
-                }
-            }
-        });
     }
     public TextWatcher textWatcher = new TextWatcher() {
         @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-        }
-
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
         @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count)
-        {
-            display.setText("");
-            calculate.setEnabled(false);
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            //targetAltitudeInputLayout.setError(null);
+            distanceEditText.setText("");
+            glideslopeEditText.setText("");
+            timeToTargetEditText.setText("");
 
-            String startingAlt = startingAltitude.getText().toString();
-            String endingAlt = endingAltitude.getText().toString();
-            String descentR = descentRate.getText().toString();
-            String speedB = speedBelow.getText().toString();
-            String speedA = speedAbove.getText().toString();
+            String cruiseAltitude = cruiseAltitudeEditText.getText().toString();
+            String targetAltitude = targetAltitudeEditText.getText().toString();
+            String verticalSpeed = verticalSpeedEditText.getText().toString();
+            String groundSpeed1 = groundSpeed1EditText.getText().toString();
+            String groundSpeed2 = groundSpeed2EditText.getText().toString();
 
-            if(startingAlt.isEmpty())
-            {
-                speedAboveText.setText("");
-                speedAbove.setVisibility(View.INVISIBLE);
-                calculate.setEnabled(false);
+            if (!cruiseAltitude.isEmpty() && Double.parseDouble(cruiseAltitude) >= 10000 &&
+                !targetAltitude.isEmpty() && Double.parseDouble(targetAltitude) < 10000) {
+                groundSpeed1InputLayout.setHint("Ground Speed above 10,000ft");
+                groundSpeed2InputLayout.setVisibility(View.VISIBLE);
+            } else {
+                groundSpeed1InputLayout.setHint("Ground Speed");
+                groundSpeed2InputLayout.setVisibility(View.GONE);
             }
-            else if(Double.parseDouble(startingAlt)>=10000)
-            {
-                speedAboveText.setText("GS above 10,000ft:");
-                speedBelowText.setText("GS below 10,000ft:");
-                speedAbove.setVisibility(View.VISIBLE);
-                if(!startingAlt.isEmpty() && !endingAlt.isEmpty() && !descentR.isEmpty() && !speedB.isEmpty() && !speedA.isEmpty())
-                    calculate.setEnabled(true);
+
+            if (!cruiseAltitude.isEmpty() && !targetAltitude.isEmpty() &&
+                    Double.parseDouble(targetAltitude) > Double.parseDouble(cruiseAltitude)) {
+                targetAltitudeInputLayout.setError("Target Altitude cannot be above Cruise Altitude");
+            } else {
+                targetAltitudeInputLayout.setError(null);
             }
-            else if(Double.parseDouble(startingAlt)<10000)
-            {
-                speedAboveText.setText("");
-                speedBelowText.setText("Ground Speed:");
-                speedAbove.setVisibility(View.INVISIBLE);
-                calculate.setEnabled(!startingAlt.isEmpty() && !endingAlt.isEmpty() && !descentR.isEmpty() && !speedB.isEmpty());
-            }
-            else
-            {
-                speedAboveText.setText("");
-                speedAbove.setVisibility(View.INVISIBLE);
-                calculate.setEnabled(false);
+
+            if (isValidForComplexCalculation()) {
+                calculateComplexDescentAndDisplay(Double.parseDouble(cruiseAltitude),
+                        Double.parseDouble(targetAltitude), Double.parseDouble(verticalSpeed),
+                        Double.parseDouble(groundSpeed1), Double.parseDouble(groundSpeed2));
+            } else if (isValidForSimpleCalculation()) {
+                calculateSimpleDescentAndDisplay(Double.parseDouble(cruiseAltitude),
+                        Double.parseDouble(targetAltitude), Double.parseDouble(verticalSpeed),
+                        Double.parseDouble(groundSpeed1));
             }
         }
-
         @Override
-        public void afterTextChanged(Editable s)
-        {
-        }
+        public void afterTextChanged(Editable s) { }
     };
-    public static void distanceDouble(double startingAltitude, double endingAltitude, double speedAbove, double speedBelow, double descentRate)
-    {
-        double distance1;
-        double altitude1 = ((startingAltitude-10000)/(-6076.12));
-        double descent1 =  (descentRate*-60)/(6076.12);
-        distance1 = (speedAbove*altitude1)/descent1;
+    private boolean isValidForComplexCalculation() {
+        String cruiseAltitude = cruiseAltitudeEditText.getText().toString();
+        String targetAltitude = targetAltitudeEditText.getText().toString();
+        String verticalSpeed = verticalSpeedEditText.getText().toString();
+        String groundSpeed1 = groundSpeed1EditText.getText().toString();
+        String groundSpeed2 = groundSpeed2EditText.getText().toString();
 
-        double distance2;
-        double altitude2 = ((10000-endingAltitude)/(-6076.12));
-        double descent2 =  (descentRate*-60)/(6076.12);
-        distance2 = (speedBelow*altitude2)/descent2;
+        return !cruiseAltitude.isEmpty() && Double.parseDouble(cruiseAltitude) >= 10000 &&
+                !targetAltitude.isEmpty() && Double.parseDouble(targetAltitude) < 10000 &&
+                Double.parseDouble(cruiseAltitude) >= Double.parseDouble(targetAltitude) &&
+                !verticalSpeed.isEmpty() && !groundSpeed1.isEmpty() && !groundSpeed2.isEmpty();
 
-        double angle1 = Math.toDegrees(Math.atan(descent1/speedAbove));
-        double angle2 = Math.toDegrees(Math.atan(descent2/speedBelow));
-        angle = (angle1+angle2)/2;
-
-
-        time = (60*(distance1/speedAbove))+(60*(distance2/speedBelow));
-        distance =  distance1+distance2;
     }
-    public static void distanceSingle(double startingAltitude, double endingAltitude, double speed, double descentRate)
-    {
-        double calculatedDistance;
-        double altitude = ((startingAltitude-endingAltitude)/(-6076.12));
-        double descent =  (descentRate*-60)/(6076.12);
-        calculatedDistance = (speed*altitude)/descent;
+    private boolean isValidForSimpleCalculation() {
+        String cruiseAltitude = cruiseAltitudeEditText.getText().toString();
+        String targetAltitude = targetAltitudeEditText.getText().toString();
+        String verticalSpeed = verticalSpeedEditText.getText().toString();
+        String groundSpeed1 = groundSpeed1EditText.getText().toString();
+        String groundSpeed2 = groundSpeed2EditText.getText().toString();
 
-        angle = Math.toDegrees(Math.atan(descent/speed));
-        time = 60*(calculatedDistance/speed);
-        distance = calculatedDistance;
+        return !cruiseAltitude.isEmpty() && !targetAltitude.isEmpty() &&
+                Double.parseDouble(cruiseAltitude) >= Double.parseDouble(targetAltitude) &&
+                !verticalSpeed.isEmpty() && !groundSpeed1.isEmpty() && !groundSpeed2.isEmpty();
+    }
+    private void calculateComplexDescentAndDisplay(double cruiseAltitude, double targetAltitude, double verticalSpeed, double speedAbove, double speedBelow) {
+        double altitude1 = (cruiseAltitude - 10000) / (-6076.12);
+        double descent1 =  (verticalSpeed * -60) / (6076.12);
+        double distance1 = (speedAbove * altitude1) / descent1;
+
+        double altitude2 = ((10000 - targetAltitude) / (-6076.12));
+        double descent2 =  (verticalSpeed * -60) / (6076.12);
+        double distance2 = (speedBelow * altitude2) / descent2;
+
+        double angle1 = Math.toDegrees(Math.atan(descent1 / speedAbove));
+        double angle2 = Math.toDegrees(Math.atan(descent2 / speedBelow));
+
+        double angle = (angle1 + angle2) / 2;
+        double time = (60 * (distance1 / speedAbove)) + (60 * (distance2 / speedBelow));
+        double distance = distance1 + distance2;
+
+        DecimalFormat numberFormat = new DecimalFormat("#.0");
+        distanceEditText.setText(numberFormat.format(distance) + " nm");
+        glideslopeEditText.setText(numberFormat.format(angle) + "°");
+        timeToTargetEditText.setText(Math.round(time) + " min");
+    }
+    private void calculateSimpleDescentAndDisplay(double cruiseAltitude, double targetAltitude, double verticalSpeed, double speed) {
+        double altitude = (cruiseAltitude - targetAltitude) / -6076.12;
+        double descent =  (verticalSpeed * -60) / 6076.12;
+
+        double distance = (speed * altitude) / descent;
+        double angle = Math.toDegrees(Math.atan(descent / speed));
+        double time = 60 * (distance / speed);
+
+        DecimalFormat numberFormat = new DecimalFormat("#.0");
+        distanceEditText.setText(numberFormat.format(distance) + " nm");
+        glideslopeEditText.setText(numberFormat.format(angle) + "°");
+        timeToTargetEditText.setText(Math.round(time) + " min");
     }
 }
