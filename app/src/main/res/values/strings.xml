@@ -78,4 +78,14 @@
     <string name="yankee">Y - yankee</string>
     <string name="zulu">Z - zulu</string>
 
+    <!--Wind Calculator-->
+    <string name="crosswind_label">Crosswind:</string>
+    <string name="headwind_label">Headwind:</string>
+    <string name="tailwind_label">Tailwind:</string>
+    <string name="gust_speed">Gust Speed</string>
+    <string name="runway">Runway</string>
+    <string name="wind_speed">Wind Speed</string>
+    <string name="wind_direction">Wind Direction</string>
+    <string name="wind_speed_display">%.2f kts</string>
+
 </resources>
