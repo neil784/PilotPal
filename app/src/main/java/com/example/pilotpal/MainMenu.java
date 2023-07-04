@@ -52,7 +52,8 @@ public class MainMenu extends AppCompatActivity {
     @Override
     public void onBackPressed() {
         if (backPressed) {
-            finish();
+            finishAffinity();
+            System.exit(0);
         }
         Toast.makeText(this, "Back one more time to exit", Toast.LENGTH_SHORT).show();
         backPressed = true;
