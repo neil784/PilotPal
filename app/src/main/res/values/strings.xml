@@ -100,4 +100,15 @@
     <string name="glideslope_display">%.1f°</string>
     <string name="time_to_target_display">%.1f min</string>
 
+    <!--Flight Time & Fuel-->
+    <string name="distance">Distance</string>
+    <string name="fuel_consumption">Fuel Consumption</string>
+    <string name="flight_time_label">Flight Time:</string>
+    <string name="flight_time_default">00:00:00</string>
+    <string name="flight_time_display">%s:%s:%s</string>
+    <string name="fuel_display">%.2f gallons</string>
+    <string name="fuel_required_label">Fuel Required:</string>
+    <string name="fuel_required_30_label">Fuel Required:\n(+30 min reserve)</string>
+    <string name="fuel_required_45_label">Fuel Required:\n(+45 min reserve)</string>
+
 </resources>
