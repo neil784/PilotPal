@@ -11,12 +11,10 @@
         varies on aircraft type, atmospheric conditions, and various other factors.</string>
 
     <!--Descent Calculator Menu-->
-    <string name="descent_calculator">Descent Calculator</string>
     <string name="calculate_descent_distance">Calculate Descent Distance</string>
     <string name="calculate_vertical_speed">Calculate Vertical Speed</string>
 
     <!--WX & Airport Activity-->
-    <string name="wx_and_airport"><![CDATA[WX & AIRPORT]]></string>
     <string name="powered_by_checkwx">Powered by CheckWX</string>
     <string name="airport_icao_code">Airport ICAO Code</string>
     <string name="search_metar">Search Metar</string>
@@ -34,6 +32,22 @@
     <string name="short_field_takeoff_body">1) 10 degrees flaps \n2) Elevators in natural position\n3) Hold brakes and apply full throttle\n4) Rotate at 50 kts\n5) Climb at 55 kts until clear of obstacles\n6) Flaps up and climb out at 75 kts</string>
     <string name="soft_field_takeoff">Soft Field Takeoff</string>
     <string name="soft_field_takeoff_body">1) 10 degree flaps\n2) Curve into runway without losing momentum\n3) Elevators fully up\n4) Apply full throttle and allow nose to come up\n5) Rotate and stay in ground effect until 55 kts\n6) Climb at 55 kts until clear of obstacles\n7) Flaps up and climb out at 75 kts</string>
+
+    <!--Main Menu-->
+    <string name="main_menu">Main Menu</string>
+    <string name="wx_and_airport"><![CDATA[WX & AIRPORT]]></string>
+    <string name="wind_calculator">Wind Calculator</string>
+    <string name="flight_time_and_fuel"><![CDATA[Flight time & fuel]]></string>
+    <string name="descent_calculator">Descent Calculator</string>
     <string name="special_ops">Special Ops</string>
+    <string name="phonetic_alphabet">Phonetic Alphabet</string>
+    <string name="copyright">&#9400; 2023 Neil Prabhu</string>
+
+    <string name="metaricon">metaricon</string>
+    <string name="windicon">windicon</string>
+    <string name="fuelicon">fuelicon</string>
+    <string name="landingicon">landingicon</string>
+    <string name="clipboardicon">clipboardicon</string>
+    <string name="phoneticicon">phoneticicon</string>
 
 </resources>
