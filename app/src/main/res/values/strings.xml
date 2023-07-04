@@ -4,6 +4,8 @@
 
     <!--Splashscreen-->
     <string name="app_name">Pilot Pal</string>
+    <string name="pilot_pal_aviation_multitool">Pilot Pal - Aviation MultiTool</string>
+    <string name="created_by_neil_prabhu">Created by Neil Prabhu</string>
     <string name="disclaimer">Disclaimer: This app should be used to approximate calculations. In
         real world flying, top of descent, vertical speed, flight time, and fuel calculations
         varies on aircraft type, atmospheric conditions, and various other factors.</string>
@@ -20,5 +22,7 @@
     <string name="search_metar">Search Metar</string>
     <string name="search_taf">Search TAF</string>
     <string name="search_airport_info">Search Airport Info</string>
+
+
 
 </resources>
