@@ -23,6 +23,12 @@
     <string name="search_taf">Search TAF</string>
     <string name="search_airport_info">Search Airport Info</string>
 
+    <!--Special Ops-->
+    <string name="landing">Landing</string>
+    <string name="short_field_landing">Short Field Landing</string>
+    <string name="soft_field_landing">Soft Field Landing</string>
+    <string name="short_field_landing_body">1) Flaps full and maintain 55 kts on final approach\n2) Aim for piano keys\n3) Retract flaps and apply hard brake immediately after touchdown\n4) Elevators up for aerodynamic braking</string>
+    <string name="soft_field_landing_body">1) Flaps full and maintain 55 kts on final approach\n2) Add a touch of power during the flare\n3) Keep the nose off the ground after touchdown</string>
 
 
 </resources>
