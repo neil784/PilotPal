@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/armata"
-        android:text="Special Ops"
+        android:text="@string/special_ops"
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="38sp"
@@ -22,16 +22,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.02" />
-
+        app:layout_constraintVertical_bias="0.01" />
 
     <Button
-        android:id="@+id/takeoff"
+        android:id="@+id/takeoffButton"
         android:layout_width="145dp"
         android:layout_height="130dp"
         android:backgroundTint="@color/white"
         android:fontFamily="@font/armata"
-        android:text="Takeoff"
+        android:text="@string/takeoff"
         android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -39,15 +38,15 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.248" />
+        app:layout_constraintVertical_bias="0.25" />
 
     <Button
-        android:id="@+id/landing"
+        android:id="@+id/landingButton"
         android:layout_width="145dp"
         android:layout_height="130dp"
         android:backgroundTint="@color/white"
         android:fontFamily="@font/armata"
-        android:text="Landing"
+        android:text="@string/landing"
         android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -55,13 +54,13 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.248" />
+        app:layout_constraintVertical_bias="0.25" />
 
     <TextView
         android:id="@+id/goback"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Go Back"
+        android:text="@string/go_back"
         android:fontFamily="@font/armata"
         android:textColor="@color/white"
         android:textSize="22sp"
