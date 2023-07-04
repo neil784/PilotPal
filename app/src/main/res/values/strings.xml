@@ -1,6 +1,16 @@
 <resources>
+    <!--Splashscreen-->
     <string name="app_name">Pilot Pal</string>
     <string name="disclaimer">Disclaimer: This app should be used to approximate calculations. In
         real world flying, top of descent, vertical speed, flight time, and fuel calculations
         varies on aircraft type, atmospheric conditions, and various other factors.</string>
+
+    <!--Descent Calculator Menu-->
+    <string name="descent_calculator">Descent Calculator</string>
+    <string name="calculate_descent_distance">Calculate Descent Distance</string>
+    <string name="calculate_vertical_speed">Calculate Vertical Speed</string>
+
+    <!--Go Back Button-->
+    <string name="go_back">Go Back</string>
+
 </resources>
