@@ -50,4 +50,32 @@
     <string name="clipboardicon">clipboardicon</string>
     <string name="phoneticicon">phoneticicon</string>
 
+    <!--Phonetic Alphabet-->
+    <string name="alpha">A - alpha</string>
+    <string name="bravo">B - bravo</string>
+    <string name="charlie">C - charlie</string>
+    <string name="delta">D - delta</string>
+    <string name="echo">E - echo</string>
+    <string name="foxtrot">F - foxtrot</string>
+    <string name="golf">G - golf</string>
+    <string name="hotel">H - hotel</string>
+    <string name="india">I - india</string>
+    <string name="juliet">J - juliet</string>
+    <string name="kilo">K - kilo</string>
+    <string name="lima">L - lima</string>
+    <string name="mike">M - mike</string>
+    <string name="november">N - november</string>
+    <string name="oscar">O - oscar</string>
+    <string name="papa">P - papa</string>
+    <string name="quebec">Q - quebec</string>
+    <string name="romeo">R - romeo</string>
+    <string name="sierra">S - sierra</string>
+    <string name="tango">T - tango</string>
+    <string name="uniform">U - uniform</string>
+    <string name="victor">V - victor</string>
+    <string name="whiskey">W - whiskey</string>
+    <string name="xray">X - xray</string>
+    <string name="yankee">Y - yankee</string>
+    <string name="zulu">Z - zulu</string>
+
 </resources>

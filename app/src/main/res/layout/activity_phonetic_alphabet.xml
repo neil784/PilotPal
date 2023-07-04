@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/armata"
-        android:text="Phonetic Alphabet"
+        android:text="@string/phonetic_alphabet"
         android:textColor="@color/white"
         android:textSize="36sp"
         android:textStyle="bold"
@@ -32,13 +32,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/armata"
         android:paddingTop="18dp"
-        android:paddingLeft="40dp"
-        android:text="A - alpha"
+        android:paddingStart="40dp"
+        android:paddingEnd="40dp"
+        android:text="@string/alpha"
         android:textAlignment="textStart"
         android:textColor="#000000"
         android:textSize="18sp"
@@ -51,13 +51,13 @@
         app:layout_constraintVertical_bias="0.172" />
 
     <TextView
-        android:id="@+id/textView27"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/armata"
         android:paddingTop="18dp"
-        android:paddingLeft="40dp"
-        android:text="B - bravo"
+        android:paddingStart="40dp"
+        android:paddingEnd="40dp"
+        android:text="@string/bravo"
         android:textAlignment="textStart"
         android:textColor="#000000"
         android:textSize="18sp"
@@ -70,13 +70,13 @@
         app:layout_constraintVertical_bias="0.23" />
 
     <TextView
-        android:id="@+id/textView28"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/armata"
         android:paddingTop="18dp"
-        android:paddingLeft="40dp"
-        android:text="C - charlie"
+        android:paddingStart="40dp"
+        android:paddingEnd="40dp"
+        android:text="@string/charlie"
         android:textAlignment="textStart"
         android:textColor="#000000"
         android:textSize="18sp"
@@ -89,13 +89,13 @@
         app:layout_constraintVertical_bias="0.287" />
 
     <TextView
-        android:id="@+id/textView39"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/armata"
         android:paddingTop="18dp"
-        android:paddingLeft="40dp"
-        android:text="D - delta"
+        android:paddingStart="40dp"
+        android:paddingEnd="40dp"
+        android:text="@string/delta"
         android:textAlignment="textStart"
         android:textColor="#000000"
         android:textSize="18sp"
@@ -108,13 +108,13 @@
         app:layout_constraintVertical_bias="0.344" />
 
     <TextView
-        android:id="@+id/textView47"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/armata"
         android:paddingTop="18dp"
-        android:paddingLeft="40dp"
-        android:text="E - echo"
+        android:paddingStart="40dp"
+        android:paddingEnd="40dp"
+        android:text="@string/echo"
         android:textAlignment="textStart"
         android:textColor="#000000"
         android:textSize="18sp"
@@ -127,13 +127,13 @@
         app:layout_constraintVertical_bias="0.402" />
 
     <TextView
-        android:id="@+id/textView55"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/armata"
         android:paddingTop="18dp"
-        android:paddingLeft="40dp"
-        android:text="F - foxtrot"
+        android:paddingStart="40dp"
+        android:paddingEnd="40dp"
+        android:text="@string/foxtrot"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="18sp"
@@ -146,13 +146,13 @@
         app:layout_constraintVertical_bias="0.46" />
 
     <TextView
-        android:id="@+id/textView40"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/armata"
         android:paddingTop="18dp"
-        android:paddingLeft="40dp"
-        android:text="G - golf"
+        android:paddingStart="40dp"
+        android:paddingEnd="40dp"
+        android:text="@string/golf"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="18sp"
@@ -165,13 +165,13 @@
         app:layout_constraintVertical_bias="0.518" />
 
     <TextView
-        android:id="@+id/textView48"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/armata"
         android:paddingTop="18dp"
-        android:paddingLeft="40dp"
-        android:text="H - hotel"
+        android:paddingStart="40dp"
+        android:paddingEnd="40dp"
+        android:text="@string/hotel"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="18sp"
@@ -184,13 +184,13 @@
         app:layout_constraintVertical_bias="0.575" />
 
     <TextView
-        android:id="@+id/textView56"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/armata"
         android:paddingTop="18dp"
-        android:paddingLeft="40dp"
-        android:text="I - india"
+        android:paddingStart="40dp"
+        android:paddingEnd="40dp"
+        android:text="@string/india"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="18sp"
@@ -203,13 +203,13 @@
         app:layout_constraintVertical_bias="0.632" />
 
     <TextView
-        android:id="@+id/textView41"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/armata"
         android:paddingTop="18dp"
-        android:paddingLeft="40dp"
-        android:text="J - juliet"
+        android:paddingStart="40dp"
+        android:paddingEnd="40dp"
+        android:text="@string/juliet"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="18sp"
@@ -222,13 +222,13 @@
         app:layout_constraintVertical_bias="0.69" />
 
     <TextView
-        android:id="@+id/textView49"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/armata"
         android:paddingTop="18dp"
-        android:paddingLeft="40dp"
-        android:text="K - kilo"
+        android:paddingStart="40dp"
+        android:paddingEnd="40dp"
+        android:text="@string/kilo"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="18sp"
@@ -241,13 +241,13 @@
         app:layout_constraintVertical_bias="0.751" />
 
     <TextView
-        android:id="@+id/textView57"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/armata"
         android:paddingTop="18dp"
-        android:paddingLeft="40dp"
-        android:text="L - lima"
+        android:paddingStart="40dp"
+        android:paddingEnd="40dp"
+        android:text="@string/lima"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="18sp"
@@ -260,13 +260,13 @@
         app:layout_constraintVertical_bias="0.808" />
 
     <TextView
-        android:id="@+id/textView42"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/armata"
         android:paddingTop="18dp"
-        android:paddingLeft="40dp"
-        android:text="M - mike"
+        android:paddingStart="40dp"
+        android:paddingEnd="40dp"
+        android:text="@string/mike"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="18sp"
@@ -279,13 +279,13 @@
         app:layout_constraintVertical_bias="0.865" />
 
     <TextView
-        android:id="@+id/textView50"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/armata"
         android:paddingTop="18dp"
-        android:paddingLeft="190dp"
-        android:text="N - november"
+        android:paddingStart="190dp"
+        android:paddingEnd="0dp"
+        android:text="@string/november"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="18sp"
@@ -298,13 +298,13 @@
         app:layout_constraintVertical_bias="0.173" />
 
     <TextView
-        android:id="@+id/textView58"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/armata"
         android:paddingTop="18dp"
-        android:paddingLeft="190dp"
-        android:text="O - oscar"
+        android:paddingStart="190dp"
+        android:paddingEnd="0dp"
+        android:text="@string/oscar"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="18sp"
@@ -317,13 +317,13 @@
         app:layout_constraintVertical_bias="0.233" />
 
     <TextView
-        android:id="@+id/textView43"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/armata"
         android:paddingTop="18dp"
-        android:paddingLeft="190dp"
-        android:text="P - papa"
+        android:paddingStart="190dp"
+        android:paddingEnd="0dp"
+        android:text="@string/papa"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="18sp"
@@ -336,13 +336,13 @@
         app:layout_constraintVertical_bias="0.29" />
 
     <TextView
-        android:id="@+id/textView51"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/armata"
         android:paddingTop="18dp"
-        android:paddingLeft="190dp"
-        android:text="Q - quebec"
+        android:paddingStart="190dp"
+        android:paddingEnd="0dp"
+        android:text="@string/quebec"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="18sp"
@@ -355,13 +355,13 @@
         app:layout_constraintVertical_bias="0.347" />
 
     <TextView
-        android:id="@+id/textView59"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/armata"
         android:paddingTop="18dp"
-        android:paddingLeft="190dp"
-        android:text="R - romeo"
+        android:paddingStart="190dp"
+        android:paddingEnd="0dp"
+        android:text="@string/romeo"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="18sp"
@@ -374,13 +374,13 @@
         app:layout_constraintVertical_bias="0.405" />
 
     <TextView
-        android:id="@+id/textView44"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/armata"
         android:paddingTop="18dp"
-        android:paddingLeft="190dp"
-        android:text="S - sierra"
+        android:paddingStart="190dp"
+        android:paddingEnd="0dp"
+        android:text="@string/sierra"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="18sp"
@@ -393,13 +393,13 @@
         app:layout_constraintVertical_bias="0.463" />
 
     <TextView
-        android:id="@+id/textView52"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/armata"
         android:paddingTop="18dp"
-        android:paddingLeft="190dp"
-        android:text="T - tango"
+        android:paddingStart="190dp"
+        android:paddingEnd="0dp"
+        android:text="@string/tango"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="18sp"
@@ -412,13 +412,13 @@
         app:layout_constraintVertical_bias="0.52" />
 
     <TextView
-        android:id="@+id/textView60"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/armata"
         android:paddingTop="18dp"
-        android:paddingLeft="190dp"
-        android:text="U - uniform"
+        android:paddingStart="190dp"
+        android:paddingEnd="0dp"
+        android:text="@string/uniform"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="18sp"
@@ -431,13 +431,13 @@
         app:layout_constraintVertical_bias="0.577" />
 
     <TextView
-        android:id="@+id/textView45"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/armata"
         android:paddingTop="18dp"
-        android:paddingLeft="190dp"
-        android:text="V - victor"
+        android:paddingStart="190dp"
+        android:paddingEnd="0dp"
+        android:text="@string/victor"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="18sp"
@@ -450,13 +450,13 @@
         app:layout_constraintVertical_bias="0.635" />
 
     <TextView
-        android:id="@+id/textView53"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/armata"
         android:paddingTop="18dp"
-        android:paddingLeft="190dp"
-        android:text="W - whiskey"
+        android:paddingStart="190dp"
+        android:paddingEnd="0dp"
+        android:text="@string/whiskey"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="18sp"
@@ -469,13 +469,13 @@
         app:layout_constraintVertical_bias="0.693" />
 
     <TextView
-        android:id="@+id/textView61"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/armata"
         android:paddingTop="18dp"
-        android:paddingLeft="190dp"
-        android:text="X - xray"
+        android:paddingStart="190dp"
+        android:paddingEnd="0dp"
+        android:text="@string/xray"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="18sp"
@@ -488,13 +488,13 @@
         app:layout_constraintVertical_bias="0.751" />
 
     <TextView
-        android:id="@+id/textView46"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/armata"
         android:paddingTop="18dp"
-        android:paddingLeft="190dp"
-        android:text="Y - yankee"
+        android:paddingStart="190dp"
+        android:paddingEnd="0dp"
+        android:text="@string/yankee"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="18sp"
@@ -507,13 +507,13 @@
         app:layout_constraintVertical_bias="0.808" />
 
     <TextView
-        android:id="@+id/textView54"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/armata"
         android:paddingTop="18dp"
-        android:paddingLeft="190dp"
-        android:text="Z - zulu"
+        android:paddingStart="190dp"
+        android:paddingEnd="0dp"
+        android:text="@string/zulu"
         android:textAlignment="center"
         android:textColor="#000000"
         android:textSize="18sp"
@@ -529,7 +529,7 @@
         android:id="@+id/goback"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Go Back"
+        android:text="@string/go_back"
         android:fontFamily="@font/armata"
         android:textColor="#56C7F2"
         android:textSize="22sp"
