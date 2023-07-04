@@ -10,10 +10,6 @@
         real world flying, top of descent, vertical speed, flight time, and fuel calculations
         varies on aircraft type, atmospheric conditions, and various other factors.</string>
 
-    <!--Descent Calculator Menu-->
-    <string name="calculate_descent_distance">Calculate Descent Distance</string>
-    <string name="calculate_vertical_speed">Calculate Vertical Speed</string>
-
     <!--WX & Airport Activity-->
     <string name="powered_by_checkwx">Powered by CheckWX</string>
     <string name="airport_icao_code">Airport ICAO Code</string>
@@ -87,5 +83,21 @@
     <string name="wind_speed">Wind Speed</string>
     <string name="wind_direction">Wind Direction</string>
     <string name="wind_speed_display">%.2f kts</string>
+
+    <!--Descent Calculator-->
+    <string name="calculate_descent_distance">Calculate Descent Distance</string>
+    <string name="calculate_vertical_speed">Calculate Vertical Speed</string>
+    <string name="time_to_target_alt_label">Time to Target Alt:</string>
+    <string name="glideslope_label">Glideslope:</string>
+    <string name="distance_label">Distance:</string>
+    <string name="ground_speed_below">Ground Speed below 10,000ft</string>
+    <string name="ground_speed">Ground Speed</string>
+    <string name="vertical_speed">Vertical Speed</string>
+    <string name="target_altitude">Target Altitude</string>
+    <string name="cruise_altitude">Cruise Altitude</string>
+    <string name="calculate_distance">Calculate Distance</string>
+    <string name="distance_display">%.1f nm</string>
+    <string name="glideslope_display">%.1f°</string>
+    <string name="time_to_target_display">%.1f min</string>
 
 </resources>

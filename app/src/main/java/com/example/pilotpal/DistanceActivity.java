@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import com.example.pilotpal.databinding.ActivityDistanceBinding;
-import java.text.DecimalFormat;
 import java.util.Objects;
 
 public class DistanceActivity extends AppCompatActivity {
@@ -88,6 +87,7 @@ public class DistanceActivity extends AppCompatActivity {
     }
     private boolean isValidForSimpleCalculation(String cruiseAltitude, String targetAltitude, String verticalSpeed, String groundSpeed1) {
         return !cruiseAltitude.isEmpty() && !targetAltitude.isEmpty() &&
+                (Double.parseDouble(cruiseAltitude) < 10000 || Double.parseDouble(cruiseAltitude) >= 10000 && Double.parseDouble(targetAltitude) >= 10000) &&
                 Double.parseDouble(cruiseAltitude) >= Double.parseDouble(targetAltitude) &&
                 !verticalSpeed.isEmpty() && !groundSpeed1.isEmpty();
     }
@@ -107,10 +107,9 @@ public class DistanceActivity extends AppCompatActivity {
         double time = (60 * (distance1 / speedAbove)) + (60 * (distance2 / speedBelow));
         double distance = distance1 + distance2;
 
-        DecimalFormat numberFormat = new DecimalFormat("#.0");
-        view.distanceEditText.setText(numberFormat.format(distance) + " nm");
-        view.glideslopeEditText.setText(numberFormat.format(angle) + "°");
-        view.timeToTargetEditText.setText(Math.round(time) + " min");
+        view.distanceEditText.setText(getString(R.string.distance_display, distance));
+        view.glideslopeEditText.setText(getString(R.string.glideslope_display, angle));
+        view.timeToTargetEditText.setText(getString(R.string.time_to_target_display, time));
     }
     private void calculateSimpleDescentAndDisplay(double cruiseAltitude, double targetAltitude, double verticalSpeed, double speed) {
         double altitude = (cruiseAltitude - targetAltitude) / -6076.12;
@@ -120,9 +119,8 @@ public class DistanceActivity extends AppCompatActivity {
         double angle = Math.toDegrees(Math.atan(descent / speed));
         double time = 60 * (distance / speed);
 
-        DecimalFormat numberFormat = new DecimalFormat("#.0");
-        view.distanceEditText.setText(numberFormat.format(distance) + " nm");
-        view.glideslopeEditText.setText(numberFormat.format(angle) + "°");
-        view.timeToTargetEditText.setText(Math.round(time) + " min");
+        view.distanceEditText.setText(getString(R.string.distance_display, distance));
+        view.glideslopeEditText.setText(getString(R.string.glideslope_display, angle));
+        view.timeToTargetEditText.setText(getString(R.string.time_to_target_display, time));
     }
 }
