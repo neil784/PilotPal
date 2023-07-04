@@ -1,7 +1,4 @@
 <resources>
-    <!--Go Back Button-->
-    <string name="go_back">Go Back</string>
-
     <!--Splashscreen-->
     <string name="app_name">Pilot Pal</string>
     <string name="pilot_pal_aviation_multitool">Pilot Pal - Aviation MultiTool</string>
@@ -9,25 +6,6 @@
     <string name="disclaimer">Disclaimer: This app should be used to approximate calculations. In
         real world flying, top of descent, vertical speed, flight time, and fuel calculations
         varies on aircraft type, atmospheric conditions, and various other factors.</string>
-
-    <!--WX & Airport Activity-->
-    <string name="powered_by_checkwx">Powered by CheckWX</string>
-    <string name="airport_icao_code">Airport ICAO Code</string>
-    <string name="search_metar">Search Metar</string>
-    <string name="search_taf">Search TAF</string>
-    <string name="search_airport_info">Search Airport Info</string>
-
-    <!--Special Ops-->
-    <string name="landing">Landing</string>
-    <string name="short_field_landing">Short Field Landing</string>
-    <string name="soft_field_landing">Soft Field Landing</string>
-    <string name="short_field_landing_body">1) Flaps full and maintain 55 kts on final approach\n2) Aim for piano keys\n3) Retract flaps and apply hard brake immediately after touchdown\n4) Elevators up for aerodynamic braking</string>
-    <string name="soft_field_landing_body">1) Flaps full and maintain 55 kts on final approach\n2) Add a touch of power during the flare\n3) Keep the nose off the ground after touchdown</string>
-    <string name="takeoff">Takeoff</string>
-    <string name="short_field_takeoff">Short Field Takeoff</string>
-    <string name="short_field_takeoff_body">1) 10 degrees flaps \n2) Elevators in natural position\n3) Hold brakes and apply full throttle\n4) Rotate at 50 kts\n5) Climb at 55 kts until clear of obstacles\n6) Flaps up and climb out at 75 kts</string>
-    <string name="soft_field_takeoff">Soft Field Takeoff</string>
-    <string name="soft_field_takeoff_body">1) 10 degree flaps\n2) Curve into runway without losing momentum\n3) Elevators fully up\n4) Apply full throttle and allow nose to come up\n5) Rotate and stay in ground effect until 55 kts\n6) Climb at 55 kts until clear of obstacles\n7) Flaps up and climb out at 75 kts</string>
 
     <!--Main Menu-->
     <string name="main_menu">Main Menu</string>
@@ -45,6 +23,62 @@
     <string name="landingicon">landingicon</string>
     <string name="clipboardicon">clipboardicon</string>
     <string name="phoneticicon">phoneticicon</string>
+
+    <!--WX & Airport-->
+    <string name="powered_by_checkwx">Powered by CheckWX</string>
+    <string name="airport_icao_code">Airport ICAO Code</string>
+    <string name="search_metar">Search Metar</string>
+    <string name="search_taf">Search TAF</string>
+    <string name="search_airport_info">Search Airport Info</string>
+
+    <!--Wind Calculator-->
+    <string name="crosswind_label">Crosswind:</string>
+    <string name="headwind_label">Headwind:</string>
+    <string name="tailwind_label">Tailwind:</string>
+    <string name="gust_speed">Gust Speed</string>
+    <string name="runway">Runway</string>
+    <string name="wind_speed">Wind Speed</string>
+    <string name="wind_direction">Wind Direction</string>
+    <string name="wind_speed_display">%.2f kts</string>
+
+    <!--Flight Time & Fuel-->
+    <string name="distance">Distance</string>
+    <string name="fuel_consumption">Fuel Consumption</string>
+    <string name="flight_time_label">Flight Time:</string>
+    <string name="flight_time_default">00:00:00</string>
+    <string name="flight_time_display">%s:%s:%s</string>
+    <string name="fuel_display">%.2f gallons</string>
+    <string name="fuel_required_label">Fuel Required:</string>
+    <string name="fuel_required_30_label">Fuel Required:\n(+30 min reserve)</string>
+    <string name="fuel_required_45_label">Fuel Required:\n(+45 min reserve)</string>
+
+    <!--Descent Calculator-->
+    <string name="calculate_descent_distance">Calculate Descent Distance</string>
+    <string name="calculate_vertical_speed">Calculate Vertical Speed</string>
+    <string name="time_to_target_alt_label">Time to Target Alt:</string>
+    <string name="glideslope_label">Glideslope:</string>
+    <string name="distance_label">Distance:</string>
+    <string name="ground_speed_below">Ground Speed below 10,000ft</string>
+    <string name="ground_speed">Ground Speed</string>
+    <string name="vertical_speed">Vertical Speed</string>
+    <string name="target_altitude">Target Altitude</string>
+    <string name="cruise_altitude">Cruise Altitude</string>
+    <string name="calculate_distance">Calculate Distance</string>
+    <string name="distance_display">%.1f nm</string>
+    <string name="glideslope_display">%.1f°</string>
+    <string name="time_to_target_display">%.1f min</string>
+
+    <!--Special Ops-->
+    <string name="landing">Landing</string>
+    <string name="short_field_landing">Short Field Landing</string>
+    <string name="soft_field_landing">Soft Field Landing</string>
+    <string name="short_field_landing_body">1) Flaps full and maintain 55 kts on final approach\n2) Aim for piano keys\n3) Retract flaps and apply hard brake immediately after touchdown\n4) Elevators up for aerodynamic braking</string>
+    <string name="soft_field_landing_body">1) Flaps full and maintain 55 kts on final approach\n2) Add a touch of power during the flare\n3) Keep the nose off the ground after touchdown</string>
+    <string name="takeoff">Takeoff</string>
+    <string name="short_field_takeoff">Short Field Takeoff</string>
+    <string name="short_field_takeoff_body">1) 10 degrees flaps \n2) Elevators in natural position\n3) Hold brakes and apply full throttle\n4) Rotate at 50 kts\n5) Climb at 55 kts until clear of obstacles\n6) Flaps up and climb out at 75 kts</string>
+    <string name="soft_field_takeoff">Soft Field Takeoff</string>
+    <string name="soft_field_takeoff_body">1) 10 degree flaps\n2) Curve into runway without losing momentum\n3) Elevators fully up\n4) Apply full throttle and allow nose to come up\n5) Rotate and stay in ground effect until 55 kts\n6) Climb at 55 kts until clear of obstacles\n7) Flaps up and climb out at 75 kts</string>
 
     <!--Phonetic Alphabet-->
     <string name="alpha">A - alpha</string>
@@ -74,41 +108,7 @@
     <string name="yankee">Y - yankee</string>
     <string name="zulu">Z - zulu</string>
 
-    <!--Wind Calculator-->
-    <string name="crosswind_label">Crosswind:</string>
-    <string name="headwind_label">Headwind:</string>
-    <string name="tailwind_label">Tailwind:</string>
-    <string name="gust_speed">Gust Speed</string>
-    <string name="runway">Runway</string>
-    <string name="wind_speed">Wind Speed</string>
-    <string name="wind_direction">Wind Direction</string>
-    <string name="wind_speed_display">%.2f kts</string>
-
-    <!--Descent Calculator-->
-    <string name="calculate_descent_distance">Calculate Descent Distance</string>
-    <string name="calculate_vertical_speed">Calculate Vertical Speed</string>
-    <string name="time_to_target_alt_label">Time to Target Alt:</string>
-    <string name="glideslope_label">Glideslope:</string>
-    <string name="distance_label">Distance:</string>
-    <string name="ground_speed_below">Ground Speed below 10,000ft</string>
-    <string name="ground_speed">Ground Speed</string>
-    <string name="vertical_speed">Vertical Speed</string>
-    <string name="target_altitude">Target Altitude</string>
-    <string name="cruise_altitude">Cruise Altitude</string>
-    <string name="calculate_distance">Calculate Distance</string>
-    <string name="distance_display">%.1f nm</string>
-    <string name="glideslope_display">%.1f°</string>
-    <string name="time_to_target_display">%.1f min</string>
-
-    <!--Flight Time & Fuel-->
-    <string name="distance">Distance</string>
-    <string name="fuel_consumption">Fuel Consumption</string>
-    <string name="flight_time_label">Flight Time:</string>
-    <string name="flight_time_default">00:00:00</string>
-    <string name="flight_time_display">%s:%s:%s</string>
-    <string name="fuel_display">%.2f gallons</string>
-    <string name="fuel_required_label">Fuel Required:</string>
-    <string name="fuel_required_30_label">Fuel Required:\n(+30 min reserve)</string>
-    <string name="fuel_required_45_label">Fuel Required:\n(+45 min reserve)</string>
+    <!--Go Back Button-->
+    <string name="go_back">Go Back</string>
 
 </resources>
