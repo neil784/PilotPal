@@ -1,4 +1,7 @@
 <resources>
+    <!--Go Back Button-->
+    <string name="go_back">Go Back</string>
+
     <!--Splashscreen-->
     <string name="app_name">Pilot Pal</string>
     <string name="disclaimer">Disclaimer: This app should be used to approximate calculations. In
@@ -10,7 +13,12 @@
     <string name="calculate_descent_distance">Calculate Descent Distance</string>
     <string name="calculate_vertical_speed">Calculate Vertical Speed</string>
 
-    <!--Go Back Button-->
-    <string name="go_back">Go Back</string>
+    <!--WX & Airport Activity-->
+    <string name="wx_and_airport"><![CDATA[WX & AIRPORT]]></string>
+    <string name="powered_by_checkwx">Powered by CheckWX</string>
+    <string name="airport_icao_code">Airport ICAO Code</string>
+    <string name="search_metar">Search Metar</string>
+    <string name="search_taf">Search TAF</string>
+    <string name="search_airport_info">Search Airport Info</string>
 
 </resources>
