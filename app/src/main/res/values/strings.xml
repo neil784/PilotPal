@@ -29,6 +29,11 @@
     <string name="soft_field_landing">Soft Field Landing</string>
     <string name="short_field_landing_body">1) Flaps full and maintain 55 kts on final approach\n2) Aim for piano keys\n3) Retract flaps and apply hard brake immediately after touchdown\n4) Elevators up for aerodynamic braking</string>
     <string name="soft_field_landing_body">1) Flaps full and maintain 55 kts on final approach\n2) Add a touch of power during the flare\n3) Keep the nose off the ground after touchdown</string>
-
+    <string name="takeoff">Takeoff</string>
+    <string name="short_field_takeoff">Short Field Takeoff</string>
+    <string name="short_field_takeoff_body">1) 10 degrees flaps \n2) Elevators in natural position\n3) Hold brakes and apply full throttle\n4) Rotate at 50 kts\n5) Climb at 55 kts until clear of obstacles\n6) Flaps up and climb out at 75 kts</string>
+    <string name="soft_field_takeoff">Soft Field Takeoff</string>
+    <string name="soft_field_takeoff_body">1) 10 degree flaps\n2) Curve into runway without losing momentum\n3) Elevators fully up\n4) Apply full throttle and allow nose to come up\n5) Rotate and stay in ground effect until 55 kts\n6) Climb at 55 kts until clear of obstacles\n7) Flaps up and climb out at 75 kts</string>
+    <string name="special_ops">Special Ops</string>
 
 </resources>
