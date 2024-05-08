@@ -25,7 +25,8 @@
         <activity android:name=".WindCalculator" />
         <activity android:name=".SpecialOps" />
         <activity android:name=".MainMenu" />
-        <activity android:name=".IntroPage">
+        <activity android:name=".IntroPage"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

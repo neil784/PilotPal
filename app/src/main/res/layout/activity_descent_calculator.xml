@@ -9,11 +9,10 @@
     tools:context=".DescentCalculator">
 
     <TextView
-        android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/armata"
-        android:text="Descent Calculator"
+        android:text="@string/descent_calculator"
         android:textColor="@color/white"
         android:textSize="32sp"
         android:textStyle="bold"
@@ -21,16 +20,15 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.02" />
-
+        app:layout_constraintVertical_bias="0.01" />
 
     <Button
-        android:id="@+id/distance"
+        android:id="@+id/calculateDescentDistanceButton"
         android:layout_width="145dp"
         android:layout_height="130dp"
         android:backgroundTint="@color/white"
         android:fontFamily="@font/armata"
-        android:text="Calculate Descent Distance"
+        android:text="@string/calculate_descent_distance"
         android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -38,15 +36,15 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.248" />
+        app:layout_constraintVertical_bias="0.25" />
 
     <Button
-        android:id="@+id/verticalspeed"
+        android:id="@+id/calculateVerticalSpeedButton"
         android:layout_width="145dp"
         android:layout_height="130dp"
         android:backgroundTint="@color/white"
         android:fontFamily="@font/armata"
-        android:text="Calculate Vertical Speed"
+        android:text="@string/calculate_vertical_speed"
         android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -54,22 +52,21 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.248" />
+        app:layout_constraintVertical_bias="0.25" />
 
     <TextView
         android:id="@+id/goback"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Go Back"
+        android:text="@string/go_back"
         android:fontFamily="@font/armata"
         android:textColor="@color/white"
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.99" />
+        app:layout_constraintVertical_bias="1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

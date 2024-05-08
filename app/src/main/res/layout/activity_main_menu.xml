@@ -9,11 +9,10 @@
     tools:context=".MainMenu">
 
     <TextView
-        android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/armata"
-        android:text="Main Menu"
+        android:text="@string/main_menu"
         android:textColor="@color/white"
         android:textSize="38sp"
         android:textStyle="bold"
@@ -23,66 +22,14 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.02" />
 
-
     <Button
-        android:id="@+id/descentcalculator"
-        android:layout_width="145dp"
-        android:layout_height="130dp"
-        android:backgroundTint="@color/white"
-        android:fontFamily="@font/armata"
-        android:paddingTop="50dp"
-        android:text="Descent Calculator"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.45" />
-
-    <Button
-        android:id="@+id/windcalculator"
-        android:layout_width="145dp"
-        android:layout_height="130dp"
-        android:backgroundTint="@color/white"
-        android:fontFamily="@font/armata"
-        android:paddingTop="50dp"
-        android:text="Wind Calculator"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.2" />
-
-    <Button
-        android:id="@+id/checklist"
+        android:id="@+id/weatherAndAirportButton"
         android:layout_width="145dp"
         android:layout_height="130dp"
         android:backgroundTint="@color/white"
         android:fontFamily="@font/armata"
         android:paddingTop="60dp"
-        android:text="Special OPS"
-        android:textColor="@color/black"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.7" />
-
-    <Button
-        android:id="@+id/metar"
-        android:layout_width="145dp"
-        android:layout_height="130dp"
-        android:backgroundTint="@color/white"
-        android:fontFamily="@font/armata"
-        android:paddingTop="60dp"
-        android:text="WX &amp; airport"
+        android:text="@string/wx_and_airport"
         android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -92,14 +39,57 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.2" />
 
+    <ImageView
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:elevation="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/weatherAndAirportButton"
+        app:layout_constraintEnd_toEndOf="@+id/weatherAndAirportButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/weatherAndAirportButton"
+        app:layout_constraintTop_toTopOf="@+id/weatherAndAirportButton"
+        app:layout_constraintVertical_bias="0.25"
+        app:srcCompat="@drawable/metaricon"
+        android:contentDescription="@string/metaricon"/>
+
     <Button
-        android:id="@+id/fueltime"
+        android:id="@+id/windCalculatorButton"
+        android:layout_width="145dp"
+        android:layout_height="130dp"
+        android:backgroundTint="@color/white"
+        android:fontFamily="@font/armata"
+        android:paddingTop="50dp"
+        android:text="@string/wind_calculator"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.2" />
+
+    <ImageView
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:elevation="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/windCalculatorButton"
+        app:layout_constraintEnd_toEndOf="@+id/windCalculatorButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/windCalculatorButton"
+        app:layout_constraintTop_toTopOf="@+id/windCalculatorButton"
+        app:layout_constraintVertical_bias="0.186"
+        app:srcCompat="@drawable/windicon"
+        android:contentDescription="@string/windicon"/>
+
+    <Button
+        android:id="@+id/flightTimeAndFuelButton"
         android:layout_width="145dp"
         android:layout_height="130dp"
         android:backgroundTint="@color/white"
         android:fontFamily="@font/armata"
         android:paddingTop="60dp"
-        android:text="Flight time &amp; fuel "
+        android:text="@string/flight_time_and_fuel"
         android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -109,14 +99,87 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.45" />
 
+    <ImageView
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:elevation="5dp"
+        app:layout_constraintHorizontal_bias="0.55"
+        app:layout_constraintVertical_bias="0.25"
+        app:layout_constraintBottom_toBottomOf="@+id/flightTimeAndFuelButton"
+        app:layout_constraintEnd_toEndOf="@+id/flightTimeAndFuelButton"
+        app:layout_constraintStart_toStartOf="@+id/flightTimeAndFuelButton"
+        app:layout_constraintTop_toTopOf="@+id/flightTimeAndFuelButton"
+        app:srcCompat="@drawable/fuelicon"
+        android:contentDescription="@string/fuelicon"/>
+
     <Button
-        android:id="@+id/phoneticalphabet"
+        android:id="@+id/descentCalculatorButton"
+        android:layout_width="145dp"
+        android:layout_height="130dp"
+        android:backgroundTint="@color/white"
+        android:fontFamily="@font/armata"
+        android:paddingTop="50dp"
+        android:text="@string/descent_calculator"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.45" />
+
+    <ImageView
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:elevation="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/descentCalculatorButton"
+        app:layout_constraintEnd_toEndOf="@+id/descentCalculatorButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/descentCalculatorButton"
+        app:layout_constraintTop_toTopOf="@+id/descentCalculatorButton"
+        app:layout_constraintVertical_bias="0.186"
+        app:srcCompat="@drawable/landingicon"
+        android:contentDescription="@string/landingicon"/>
+
+    <Button
+        android:id="@+id/specialOpsButton"
         android:layout_width="145dp"
         android:layout_height="130dp"
         android:backgroundTint="@color/white"
         android:fontFamily="@font/armata"
         android:paddingTop="60dp"
-        android:text="Phonetic Alphabet"
+        android:text="@string/special_ops"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.7" />
+
+    <ImageView
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:elevation="5dp"
+        app:layout_constraintBottom_toBottomOf="@+id/specialOpsButton"
+        app:layout_constraintEnd_toEndOf="@+id/specialOpsButton"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/specialOpsButton"
+        app:layout_constraintTop_toTopOf="@+id/specialOpsButton"
+        app:layout_constraintVertical_bias="0.25"
+        app:srcCompat="@drawable/clipboardicon"
+        android:contentDescription="@string/clipboardicon" />
+
+    <Button
+        android:id="@+id/phoneticAlphabetButton"
+        android:layout_width="145dp"
+        android:layout_height="130dp"
+        android:backgroundTint="@color/white"
+        android:fontFamily="@font/armata"
+        android:paddingTop="60dp"
+        android:text="@string/phonetic_alphabet"
         android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -127,81 +190,30 @@
         app:layout_constraintVertical_bias="0.7" />
 
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:elevation="5dp"
-        app:layout_constraintBottom_toBottomOf="@+id/checklist"
-        app:layout_constraintEnd_toEndOf="@+id/checklist"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/checklist"
-        app:layout_constraintTop_toTopOf="@+id/checklist"
-        app:layout_constraintVertical_bias="0.25"
-        app:srcCompat="@drawable/clipboardicon" />
-
-    <ImageView
-        android:id="@+id/imageView3"
         android:layout_width="55dp"
         android:layout_height="55dp"
         android:elevation="5dp"
-        app:layout_constraintBottom_toBottomOf="@+id/windcalculator"
-        app:layout_constraintEnd_toEndOf="@+id/windcalculator"
+        app:layout_constraintBottom_toBottomOf="@+id/phoneticAlphabetButton"
+        app:layout_constraintEnd_toEndOf="@+id/phoneticAlphabetButton"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/windcalculator"
-        app:layout_constraintTop_toTopOf="@+id/windcalculator"
+        app:layout_constraintStart_toStartOf="@+id/phoneticAlphabetButton"
+        app:layout_constraintTop_toTopOf="@+id/phoneticAlphabetButton"
         app:layout_constraintVertical_bias="0.186"
-        app:srcCompat="@drawable/windicon" />
+        app:srcCompat="@drawable/phoneticicon"
+        android:contentDescription="@string/phoneticicon"/>
 
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
-        android:elevation="5dp"
-        app:layout_constraintBottom_toBottomOf="@+id/descentcalculator"
-        app:layout_constraintEnd_toEndOf="@+id/descentcalculator"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/descentcalculator"
-        app:layout_constraintTop_toTopOf="@+id/descentcalculator"
-        app:layout_constraintVertical_bias="0.186"
-        app:srcCompat="@drawable/landingicon" />
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
-        android:elevation="5dp"
-        app:layout_constraintBottom_toBottomOf="@+id/phoneticalphabet"
-        app:layout_constraintEnd_toEndOf="@+id/phoneticalphabet"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/phoneticalphabet"
-        app:layout_constraintTop_toTopOf="@+id/phoneticalphabet"
-        app:layout_constraintVertical_bias="0.186"
-        app:srcCompat="@drawable/phoneticicon" />
-
-    <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
-        android:elevation="5dp"
-        app:layout_constraintBottom_toBottomOf="@+id/metar"
-        app:layout_constraintEnd_toEndOf="@+id/metar"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/metar"
-        app:layout_constraintTop_toTopOf="@+id/metar"
-        app:layout_constraintVertical_bias="0.25"
-        app:srcCompat="@drawable/metaricon" />
-
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:elevation="5dp"
-        app:layout_constraintHorizontal_bias="0.55"
-        app:layout_constraintVertical_bias="0.25"
-        app:layout_constraintBottom_toBottomOf="@+id/fueltime"
-        app:layout_constraintEnd_toEndOf="@+id/fueltime"
-        app:layout_constraintStart_toStartOf="@+id/fueltime"
-        app:layout_constraintTop_toTopOf="@+id/fueltime"
-        app:srcCompat="@drawable/fuelicon" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/copyright"
+        android:fontFamily="@font/armata"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

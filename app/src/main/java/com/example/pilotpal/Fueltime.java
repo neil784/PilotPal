@@ -1,131 +1,88 @@
 package com.example.pilotpal;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-
+import com.example.pilotpal.databinding.ActivityFueltimeBinding;
 import java.text.DecimalFormat;
+import java.util.Objects;
 
 public class Fueltime extends AppCompatActivity {
-    EditText distance;
-    EditText groundSpeed;
-    EditText flightTime;
-    EditText fuelConsumption;
-    EditText fuelRequired;
-    EditText fuelRequired2;
-    EditText fuelRequired3;
-    TextView goback;
-
-    public static double fthours = 0;
-    public static String hours = "";
-    public static String minutes = "";
-    public static String seconds = "";
-    public static double calculatedFuelRequired = 0;
-    public static double calculatedFuelRequired30 = 0;
-    public static double calculatedFuelRequired45 = 0;
+    ActivityFueltimeBinding view;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        view = ActivityFueltimeBinding.inflate(getLayoutInflater());
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        getSupportActionBar().hide();
-        setContentView(R.layout.activity_fueltime);
-        distance = findViewById(R.id.distance);
-        groundSpeed = findViewById(R.id.groundSpeed);
-        flightTime = findViewById(R.id.flightTime1);
-        fuelConsumption = findViewById(R.id.fuelConsumption);
-        fuelRequired = findViewById(R.id.fuelRequired);
-        fuelRequired2 = findViewById(R.id.fuelRequired2);
-        fuelRequired3 = findViewById(R.id.fuelRequired3);
-        goback = findViewById(R.id.goback);
-        goback.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Fueltime.this, MainMenu.class);
-                startActivity(intent);
-                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
-            }
+        Objects.requireNonNull(getSupportActionBar()).hide();
+        setContentView(view.getRoot());
+
+        view.goback.setOnClickListener(v -> {
+            Intent intent = new Intent(Fueltime.this, MainMenu.class);
+            startActivity(intent);
+            overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
         });
 
-        distance.addTextChangedListener(textWatcher);
-        groundSpeed.addTextChangedListener(textWatcher);
-        fuelConsumption.addTextChangedListener(textWatcher);
+        view.distanceEditText.addTextChangedListener(textWatcher);
+        view.groundSpeedEditText.addTextChangedListener(textWatcher);
+        view.fuelConsumptionEditText.addTextChangedListener(textWatcher);
     }
-    private TextWatcher textWatcher = new TextWatcher() {
+    private final TextWatcher textWatcher = new TextWatcher() {
         @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-        }
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
-            String distanceInput = distance.getText().toString();
-            String groundSpeedInput = groundSpeed.getText().toString();
-            String fuelConsumptionInput = fuelConsumption.getText().toString();
-            if (!distanceInput.isEmpty() && !groundSpeedInput.isEmpty() && ! fuelConsumptionInput.isEmpty()) {
-                calculateFlightTime(Double.parseDouble(distance.getText().toString()), Double.parseDouble(groundSpeed.getText().toString()));
-                flightTime.setText(hours + ":" + minutes + ":" + seconds);
-                calculateFuelRequired(hoursToMinutes(fthours), Double.parseDouble(fuelConsumption.getText().toString()));
-                fuelRequired.setText(new DecimalFormat("0.00").format(calculatedFuelRequired) + " gallons");
-                fuelRequired2.setText(new DecimalFormat("0.00").format(calculatedFuelRequired30) + " gallons");
-                fuelRequired3.setText(new DecimalFormat("0.00").format(calculatedFuelRequired45) + " gallons");
-            } else if (!distanceInput.isEmpty() && !groundSpeedInput.isEmpty()) {
-                calculateFlightTime(Double.parseDouble(distance.getText().toString()), Double.parseDouble(groundSpeed.getText().toString()));
-                flightTime.setText(hours + ":" + minutes + ":" + seconds);
-                fuelRequired.setText("");
-                fuelRequired2.setText("");
-                fuelRequired3.setText("");
-            }  else {
-                flightTime.setText("00:00:00");
-                fuelRequired.setText("");
-                fuelRequired2.setText("");
-                fuelRequired3.setText("");
+            view.flightTime.setText(getString(R.string.flight_time_default));
+            view.fuelRequired.setText("");
+            view.fuelRequired30.setText("");
+            view.fuelRequired45.setText("");
+
+            String distanceInput = Objects.requireNonNull(view.distanceEditText.getText()).toString();
+            String groundSpeedInput = Objects.requireNonNull(view.groundSpeedEditText.getText()).toString();
+            String fuelConsumptionInput = Objects.requireNonNull(view.fuelConsumptionEditText.getText()).toString();
+
+            if (!distanceInput.isEmpty() && !groundSpeedInput.isEmpty() && ! fuelConsumptionInput.isEmpty() && Integer.parseInt(groundSpeedInput) != 0) {
+                calculateAndDisplayFlightTime(Double.parseDouble(view.distanceEditText.getText().toString()), Double.parseDouble(view.groundSpeedEditText.getText().toString()));
+                calculateAndDisplayFuelRequired(Double.parseDouble(view.distanceEditText.getText().toString()), Double.parseDouble(view.groundSpeedEditText.getText().toString()), Double.parseDouble(view.fuelConsumptionEditText.getText().toString()));
+            } else if (!distanceInput.isEmpty() && !groundSpeedInput.isEmpty() && Integer.parseInt(groundSpeedInput) != 0) {
+                calculateAndDisplayFlightTime(Double.parseDouble(view.distanceEditText.getText().toString()), Double.parseDouble(view.groundSpeedEditText.getText().toString()));
             }
         }
-
         @Override
-        public void afterTextChanged(Editable s) {
-        }
+        public void afterTextChanged(Editable s) { }
     };
-    public static void calculateFlightTime(double distance, double groundSpeed) {
-        double groundSpeedRec = 1 / groundSpeed;
-        fthours = groundSpeedRec * distance;
-        hours = new DecimalFormat("00").format((int) fthours);
-        double ftminutes = hoursToMinutes(fthours - Double.parseDouble(hours));
-        minutes = new DecimalFormat("00").format((int) ftminutes);
-        double ftseconds = minutesToSeconds(ftminutes - Double.parseDouble(minutes));
-        seconds = new DecimalFormat("00").format((int) ftseconds);
-
+    private void calculateAndDisplayFlightTime(double distance, double groundSpeed) {
+        double fthours = distance / groundSpeed;
+        String hours = new DecimalFormat("00").format((int) fthours);
+        double ftminutes = 60 * (fthours - Double.parseDouble(hours));
+        String minutes = new DecimalFormat("00").format((int) ftminutes);
+        double ftseconds = 60 * (ftminutes - Double.parseDouble(minutes));
+        String seconds = new DecimalFormat("00").format((int) ftseconds);
+        view.flightTime.setText(getString(R.string.flight_time_display, hours, minutes, seconds));
     }
-    public static void calculateFuelRequired(double flightTime, double fuelConsumption) {
-        double hourConverted = minutesToHours(flightTime);
-        calculatedFuelRequired = fuelConsumption * hourConverted;
+    private void calculateAndDisplayFuelRequired(double distance, double groundSpeed, double fuelConsumption) {
+        double flightTime = 60 * (distance / groundSpeed);
+        double hourConverted = flightTime / 60;
+        double calculatedFuelRequired = fuelConsumption * hourConverted;
 
         flightTime += 30;
-        double hourConverted30 = minutesToHours(flightTime);
-        calculatedFuelRequired30 = fuelConsumption * hourConverted30;
+        double hourConverted30 = flightTime / 60;
+        double calculatedFuelRequired30 = fuelConsumption * hourConverted30;
 
         flightTime += 15;
-        double hourConverted45 = minutesToHours(flightTime);
-        calculatedFuelRequired45 = fuelConsumption * hourConverted45;
-    }
-    public static double hoursToMinutes(double hours) {
-        return hours * 60;
-    }
-    public static double minutesToSeconds(double minutes) {
-        return minutes * 60;
-    }
-    public static double minutesToHours(double minutes) {
-        return minutes / 60;
+        double hourConverted45 = flightTime / 60;
+        double calculatedFuelRequired45 = fuelConsumption * hourConverted45;
+
+        view.fuelRequired.setText(getString(R.string.fuel_display, calculatedFuelRequired));
+        view.fuelRequired30.setText(getString(R.string.fuel_display, calculatedFuelRequired30));
+        view.fuelRequired45.setText(getString(R.string.fuel_display, calculatedFuelRequired45));
     }
 }
