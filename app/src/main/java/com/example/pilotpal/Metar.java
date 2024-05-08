@@ -37,32 +37,52 @@ public class Metar extends AppCompatActivity {
                 Intent intent = new Intent(Metar.this, MetarWebview.class);
                 intent.putExtra("ICAO", icao);
                 startActivity(intent);
+                overridePendingTransition(R.anim.slide_in_left, R.anim.slide_out_right);
             }
         });
-        view.searchTAFButton.setOnClickListener(v -> {
-            String icao = Objects.requireNonNull(view.icaoEditText.getText()).toString().toLowerCase().trim();
-            if (icao.isEmpty()) {
-                view.icaoInputLayout.setError("Please enter an airport ICAO code");
-            } else if (icao.length() != 4) {
-                view.icaoInputLayout.setError("Please enter a valid 4 character ICAO code");
-            } else {
-                view.icaoInputLayout.setError(null);
-                Intent intent = new Intent(Metar.this, TafWebview.class);
-                intent.putExtra("ICAO", icao);
-                startActivity(intent);
+        metarBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String icao = inputIcao.getText().toString().toLowerCase().trim();
+                if (icao.isEmpty()) {
+                    errorText.setText("Please enter an airport ICAO code");
+                } else if (icao.length() != 4) {
+                    errorText.setText("Please enter a valid 4 character ICAO code");
+                } else {
+                    Intent intent = new Intent(Metar.this, MetarWebview.class);
+                    intent.putExtra("ICAO", icao);
+                    startActivity(intent);
+                }
             }
         });
-        view.searchAirportInfoButton.setOnClickListener(v -> {
-            String icao = Objects.requireNonNull(view.icaoEditText.getText()).toString().toLowerCase().trim();
-            if (icao.isEmpty()) {
-                view.icaoInputLayout.setError("Please enter an airport ICAO code");
-            } else if (icao.length() != 4) {
-                view.icaoInputLayout.setError("Please enter a valid 4 character ICAO code");
-            } else {
-                view.icaoInputLayout.setError(null);
-                Intent intent = new Intent(Metar.this, AirportWebview.class);
-                intent.putExtra("ICAO", icao);
-                startActivity(intent);
+        tafBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String icao = inputIcao.getText().toString().toLowerCase().trim();
+                if (icao.isEmpty()) {
+                    errorText.setText("Please enter an airport ICAO code");
+                } else if (icao.length() != 4) {
+                    errorText.setText("Please enter a valid 4 character ICAO code");
+                } else {
+                    Intent intent = new Intent(Metar.this, TafWebview.class);
+                    intent.putExtra("ICAO", icao);
+                    startActivity(intent);
+                }
+            }
+        });
+        airportBTN.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String icao = inputIcao.getText().toString().toLowerCase().trim();
+                if (icao.isEmpty()) {
+                    errorText.setText("Please enter an airport ICAO code");
+                } else if (icao.length() != 4) {
+                    errorText.setText("Please enter a valid 4 character ICAO code");
+                } else {
+                    Intent intent = new Intent(Metar.this, AirportWebview.class);
+                    intent.putExtra("ICAO", icao);
+                    startActivity(intent);
+                }
             }
         });
     }
