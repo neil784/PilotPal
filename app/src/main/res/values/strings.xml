@@ -58,6 +58,7 @@
     <string name="time_to_target_alt_label">Time to Target Alt:</string>
     <string name="glideslope_label">Glideslope:</string>
     <string name="distance_label">Distance:</string>
+    <string name="vertical_speed_label">Vertical Speed:</string>
     <string name="ground_speed_below">Ground Speed below 10,000ft</string>
     <string name="ground_speed">Ground Speed</string>
     <string name="vertical_speed">Vertical Speed</string>
